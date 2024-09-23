@@ -1,0 +1,4 @@
+Public variables and functions: camelCase
+Private variables and functions: _camelCase with leading underscore
+Constants: SCREAMING_SNAKE_CASE
+Structs: PascalCase

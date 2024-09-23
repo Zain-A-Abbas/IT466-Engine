@@ -113,7 +113,7 @@ int main(int argc,char *argv[])
                 gf3d_model_draw(
                     dino,
                     dinoMat,
-                    GFC_COLOR_RED,
+                    GFC_COLOR_WHITE,
                     0);
                 draw_origin();
             //2D draws
