@@ -98,6 +98,7 @@ int main(int argc,char *argv[])
 
     // Create player
     Entity * player = createPlayer();
+    assignCamera(player, gf3dGetCamera());
 
 
     //windows
