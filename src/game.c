@@ -24,6 +24,8 @@
 #include "gf3d_camera.h"
 #include "gf3d_texture.h"
 #include "gf3d_draw.h"
+#include "Entity.cpp"
+#include "Player.cpp"
 
 extern int __DEBUG;
 
@@ -56,7 +58,7 @@ void draw_origin()
 int main(int argc,char *argv[])
 {
     //local variables
-    Model *sky,*dino;
+    Model *sky;
     GFC_Matrix4 skyMat,dinoMat;
     //initializtion    
     parse_arguments(argc,argv);
@@ -71,6 +73,7 @@ int main(int argc,char *argv[])
     gf3d_materials_init();
     gf2d_font_init("config/font.cfg");
     gf2d_actor_init(1000);
+    
     gf3d_draw_init();//3D
     gf2d_draw_manager_init(1000);//2D
     
@@ -82,7 +85,6 @@ int main(int argc,char *argv[])
     gf2d_mouse_load("actors/mouse.actor");
     sky = gf3d_model_load("models/sky.model");
     gfc_matrix4_identity(skyMat);
-    dino = gf3d_model_load("models/dino.model");
     gfc_matrix4_identity(dinoMat);
         //camera
     gf3d_camera_set_scale(gfc_vector3d(1,1,1));
@@ -92,6 +94,12 @@ int main(int argc,char *argv[])
     gf3d_camera_set_rotate_step(0.05);
     
     gf3d_camera_enable_free_look(1);
+    entitySystemInit(1024);
+
+    // Create player
+    Entity * player = createPlayer();
+
+
     //windows
 
     // main game loop    
@@ -100,8 +108,10 @@ int main(int argc,char *argv[])
         gfc_input_update();
         gf2d_mouse_update();
         gf2d_font_update();
+        entityThinkAll();
+        entityUpdateAll();
         //camera updaes
-        gf3d_camera_controls_update();
+        //gf3d_camera_controls_update();
         gf3d_camera_update_view();
         gf3d_camera_get_view_mat4(gf3d_vgraphics_get_view_matrix());
 
@@ -109,17 +119,14 @@ int main(int argc,char *argv[])
 
             //3D draws
         
+
+
                 gf3d_model_draw_sky(sky,skyMat,GFC_COLOR_WHITE);
-                gf3d_model_draw(
-                    dino,
-                    dinoMat,
-                    GFC_COLOR_WHITE,
-                    0);
+                entityDrawAll();
                 draw_origin();
             //2D draws
                 gf2d_mouse_draw();
                 gf2d_font_draw_line_tag("ALT+F4 to exit",FT_H1,GFC_COLOR_WHITE, gfc_vector2d(10,10));
-
         gf3d_vgraphics_render_end();
 
 
