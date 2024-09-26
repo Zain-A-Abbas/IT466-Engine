@@ -15,6 +15,7 @@ Entity * createPlayer() {
 
     memset(playerData, 0, sizeof(PlayerData));
     playerEntity->data = playerData;
+    playerData->playerVelocity = gfc_vector3d(0, 0, 0);
     playerData->playerRotation = gfc_vector3d(M_PI, 0, 0);
     
 
@@ -49,17 +50,21 @@ void update(Entity * self) {
 
 void _playerControls(Entity * self) {
     PlayerData * playerData = getPlayerData(self);
+
+    GFC_Vector2D inputVector = gfc_vector2d(
+        gfc_input_command_down("walkright") - gfc_input_command_down("walkleft"),
+        gfc_input_command_down("walkforward") - gfc_input_command_down("walkback")
+        );
+    inputVector = gfc_vector2d_rotate(inputVector, playerData->playerRotation.z);
+
+    GFC_Vector3D movementVelocity = gfc_vector3d(inputVector.x, inputVector.y, 0);
+
+    movementVelocity.x *= PLAYER_SPEED;
+    movementVelocity.y *= PLAYER_SPEED;
+    movementVelocity.x *= -1;
+    movementVelocity.y *= -1;
     
-    GFC_Vector2D velocity = gfc_vector2d(0, 0);
-
-    velocity.x = PLAYER_SPEED * (gfc_input_command_down("walkright") - gfc_input_command_down("walkleft"));
-    velocity.y = PLAYER_SPEED * (gfc_input_command_down("walkforward") - gfc_input_command_down("walkback"));
-    velocity.x *= -1;
-    velocity.y *= -1;
-    velocity = gfc_vector2d_rotate(velocity, playerData->playerRotation.z);
-
-    self->position.x += velocity.x;
-    self->position.y += velocity.y;
+    playerData->playerVelocity = movementVelocity;
 
     int mouseX, mouseY;
     SDL_GetRelativeMouseState(&mouseX, &mouseY);
@@ -67,11 +72,14 @@ void _playerControls(Entity * self) {
     playerData->playerRotation.x += mouseY * HORIZONTAL_MOUSE_SENSITIVITY;
     if (playerData->playerRotation.x > HIGHEST_X_DEGREES * GFC_DEGTORAD) playerData->playerRotation.x = HIGHEST_X_DEGREES * GFC_DEGTORAD;
     if (playerData->playerRotation.x < LOWEST_X_DEGREES * GFC_DEGTORAD) playerData->playerRotation.x = LOWEST_X_DEGREES * GFC_DEGTORAD;
+    
 }
 
 void _playerUpdate(Entity * self) {
 
     PlayerData * playerData = getPlayerData(self);
+    self->position.x += playerData->playerVelocity.x;
+    self->position.y += playerData->playerVelocity.y;
 
     if (playerData->camera) {
 

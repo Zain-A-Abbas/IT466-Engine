@@ -82,7 +82,7 @@ int main(int argc,char *argv[])
     slog_sync();
 
     //game setup
-    gf2d_mouse_load("actors/mouse.actor");
+    //gf2d_mouse_load("actors/mouse.actor");
     sky = gf3d_model_load("models/sky.model");
     gfc_matrix4_identity(skyMat);
     gfc_matrix4_identity(dinoMat);

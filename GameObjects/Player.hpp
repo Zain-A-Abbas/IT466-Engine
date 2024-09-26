@@ -15,7 +15,8 @@ const int LOWEST_X_DEGREES = -20;
 
 typedef struct PlayerData_S {
     Camera          *camera;    // Pointer to camera
-    GFC_Vector3D  playerRotation;
+    GFC_Vector3D    playerRotation;
+    GFC_Vector3D    playerVelocity;
 } PlayerData;
 
 
