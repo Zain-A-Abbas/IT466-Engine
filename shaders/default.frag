@@ -23,11 +23,22 @@ struct MaterialUBO
     vec2    padding;        //for alignment
 };
 
+struct LightUBO {
+    vec4    lightPosition;
+    vec4    lightDirection;
+    vec4    lightColor;
+    float   angle;
+    float   brightness;
+    float   fallOff;
+    bool   inUse;
+};
+
 layout(binding = 0) uniform UniformBufferObject
 {
     MeshUBO         mesh;
     MaterialUBO     material;   //this may become an array
-}ubo;
+    LightUBO        light[16];
+} ubo;
 
 layout(binding = 1) uniform sampler2D texSampler;
 
@@ -42,11 +53,32 @@ void main()
     int i;
     vec4 surfaceColor = texture(texSampler, fragTexCoord);
     vec3 normal = fragNormal;
-    vec3 surfaceToCamera = normalize(ubo.mesh.camera.xyz - position);
     
     surfaceColor.xyz *= ubo.material.diffuse.xyz;
     surfaceColor.w *= ubo.material.diffuse.w * ubo.material.transparency;
 
     outColor = surfaceColor;
+
+    vec4 compositeLight = vec4(0);
+
+    for (int i = 0; i < MAX_LIGHTS; i++) {
+        if (ubo.light[i].inUse) {
+            vec3 surfaceToCamera = normalize(ubo.mesh.camera.xyz - position);
+            vec3 surfaceToLight = -normalize(ubo.light[i].lightDirection.xyz);
+
+            if (ubo.light[i].lightPosition.w > 0.0) {
+                surfaceToLight = normalize(ubo.light[i].lightPosition.xyz - position);
+            }
+
+            float diffuseCoefficient = max(0.0, dot(normal, surfaceToLight));
+
+            vec3 diffuse = diffuseCoefficient * surfaceColor.rgb * ubo.light[i].lightColor.rgb;
+
+            compositeLight += vec4(diffuse, 0);
+        }
+    }
+
+    outColor.xyz += compositeLight.xyz;
+
 }
 
