@@ -33,7 +33,7 @@
 #include "gf3d_texture.h"
 #include "gf3d_mesh.h"
 #include "gf3d_materials.h"
-
+#include "light.hpp"
 
 //all inclusive of features
 typedef struct
@@ -58,7 +58,9 @@ typedef struct
     Texture            *normalMap;
     GFC_Box             bounds;         //copied from the mesh
     GFC_Matrix4         matrix;         //a delta applied right before rendering.  an adjustment loaded from file
-}Model;
+    GFC_List           *light;
+    
+} Model;
 
 /**
  * @brief this struct groups the model with common use case for it.

@@ -1,0 +1,14 @@
+In model.c during draw index:
+	If light
+		use c (someint) = gfc_list_count_light
+		for loop through min(c, lightMax)
+			add the light from the light list gfc to the lights
+
+If ubo.active in fragment then do light code
+
+
+In shader folder run command:
+glslangValidator -V [infile] -o [outfile]
+
+Example:
+glslangValidator -V default.frag -o frag.spv
