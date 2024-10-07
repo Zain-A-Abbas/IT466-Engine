@@ -17,7 +17,10 @@ Entity * createPlayer() {
     playerEntity->data = playerData;
     playerData->playerVelocity = gfc_vector3d(0, 0, 0);
     playerData->playerRotation = gfc_vector3d(M_PI, 0, 0);
-    
+
+    playerData->playerWeapons = (Weapon*) malloc(10 * sizeof(Weapon));
+    memset(playerData->playerWeapons, 0, 10 * sizeof(Weapon));
+    playerData->playerWeapons[0] = loadWeapon("GameData/WeaponData/Pistol.json");
 
     return playerEntity;
 }

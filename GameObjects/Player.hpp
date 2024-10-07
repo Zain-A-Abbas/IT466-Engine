@@ -5,6 +5,7 @@
 #include "Entity.hpp"
 #include "gfc_input.h"
 #include "gf3d_camera.h"
+#include "Weapon.cpp"
 
 const float PLAYER_SPEED = 0.125;
 const float HORIZONTAL_MOUSE_SENSITIVITY = 0.025;
@@ -17,6 +18,7 @@ typedef struct PlayerData_S {
     Camera          *camera;    // Pointer to camera
     GFC_Vector3D    playerRotation;
     GFC_Vector3D    playerVelocity;
+    Weapon          *playerWeapons;
 } PlayerData;
 
 

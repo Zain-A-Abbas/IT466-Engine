@@ -637,9 +637,13 @@ void gf3d_model_draw_index(
     if (light) {
         c = gfc_list_count(light);
 
+
         for (i = 0; i < MIN(c, LIGHT_UBO_MAX); i++) {
             currLight = gfc_list_nth(light, i);
-            if (!currLight) continue;
+            if (!currLight) {
+                continue;
+            }
+            slog("Light use: %f", currLight->active);
             memcpy(&uboData.light[i], currLight, sizeof(Light));
         }
     }
