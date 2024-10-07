@@ -145,6 +145,7 @@ void gf3d_model_move(Model *in, GFC_Vector3D offset,GFC_Vector3D rotation);
  * @param model the model to render
  * @param modelMat the model matrix (MVP)
  * @param colorMod color modulation (values from 0 to 1);
+ * @param light if provided, use this light to render
  * @param frame the animation frame to use for armature based animations
  */
 void gf3d_model_draw(

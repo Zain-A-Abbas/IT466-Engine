@@ -1,0 +1,7 @@
+{
+    "Name": "Pistol",
+    "CartridgeSize": 8,
+    "ReloadSpeed": 2,
+    "MaxReserveAmmo": 999,
+    "damage": 3
+}
