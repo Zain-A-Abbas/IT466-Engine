@@ -92,5 +92,9 @@ void gf3d_obj_free(ObjData *obj);
  */
 int gf3d_obj_edge_test(ObjData *obj,GFC_Matrix4 offset, GFC_Edge3D e,GFC_Vector3D *contact);
 
+/**
+ * @brief Checks for a raycast
+ */
+Uint8 gf3d_obj_line_test(ObjData *obj, GFC_Edge3D e, GFC_Vector3D *contact);
 
 #endif
