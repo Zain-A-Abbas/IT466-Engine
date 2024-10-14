@@ -94,6 +94,8 @@ int gf3d_obj_edge_test(ObjData *obj,GFC_Matrix4 offset, GFC_Edge3D e,GFC_Vector3
 
 /**
  * @brief Checks for a raycast
+ * @param obj The obejct that's being checked
+ * @param e The edge
  */
 Uint8 gf3d_obj_line_test(ObjData *obj, GFC_Edge3D e, GFC_Vector3D *contact);
 

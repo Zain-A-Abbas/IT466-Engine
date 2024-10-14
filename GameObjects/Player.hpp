@@ -2,7 +2,7 @@
 #define __PLAYER__
 
 #include "simple_logger.h"
-#include "Entity.hpp"
+#include "Entity.cpp"
 #include "gfc_input.h"
 #include "gf3d_camera.h"
 #include "Weapon.cpp"
@@ -39,5 +39,6 @@ void playerFree(Entity * self);
 void _playerControls(Entity * self); 
 void _playerUpdate(Entity * self); 
 
+GFC_Vector3D getCameraPosition(Entity *self);
 
 #endif

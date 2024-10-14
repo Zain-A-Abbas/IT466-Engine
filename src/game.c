@@ -103,6 +103,11 @@ int main(int argc,char *argv[])
     assignCamera(player, gf3dGetCamera());
     SDL_SetRelativeMouseMode(SDL_TRUE);
 
+    // Create dummo
+    Entity * dinoTest = entityNew();
+    dinoTest->model = gf3d_model_load("models/dino.model");
+    dinoTest->position = gfc_vector3d(16, 16, 0); 
+
 
     //windows
 

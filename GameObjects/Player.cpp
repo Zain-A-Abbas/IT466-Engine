@@ -76,9 +76,20 @@ void _playerControls(Entity * self) {
     if (playerData->playerRotation.x > HIGHEST_X_DEGREES * GFC_DEGTORAD) playerData->playerRotation.x = HIGHEST_X_DEGREES * GFC_DEGTORAD;
     if (playerData->playerRotation.x < LOWEST_X_DEGREES * GFC_DEGTORAD) playerData->playerRotation.x = LOWEST_X_DEGREES * GFC_DEGTORAD;
     
+
+    if (gfc_input_command_pressed("continue"))  {
+        GFC_Vector3D raycastPosition = self->position;
+        GFC_Vector3D raycastAdd = gfc_vector3d(0, -12, 0);
+        gfc_vector3d_rotate_about_z(&raycastAdd, playerData->playerRotation.z); 
+        raycastPosition = gfc_vector3d_added(raycastPosition, raycastAdd);
+        
+        GFC_Edge3D raycast = gfc_edge3d_from_vectors(self->position, raycastPosition);
+        slog("Current Position: %f, %f, %f", self->position.x, self->position.y, self->position.z);
+        slog("Raycast Position: %f, %f, %f", raycastPosition.x, raycastPosition.y, raycastPosition.z);
+    }
 }
 
-void _playerUpdate(Entity * self) {
+void _playerUpdate(Entity *self) {
 
     PlayerData * playerData = getPlayerData(self);
     self->position.x += playerData->playerVelocity.x;
@@ -87,11 +98,7 @@ void _playerUpdate(Entity * self) {
     if (playerData->camera) {
 
         // Gets the camera offset, rotates it around the player's Z and X rotations, then adds it to the player's position
-        GFC_Vector3D newCamPosition = CAMERA_OFFSET;
-        gfc_vector3d_rotate_about_x(&newCamPosition, playerData->playerRotation.x); 
-        gfc_vector3d_rotate_about_z(&newCamPosition, playerData->playerRotation.z);
-        newCamPosition = gfc_vector3d_added(newCamPosition, self->position);
-        gf3d_camera_set_position(newCamPosition);
+        gf3d_camera_set_position(getCameraPosition(self));
 
         // Takes the base camera rotation, and adds together its Z rotation and the player's Z rotation
         GFC_Vector3D baseCamRotation = gfc_vector3d_added(CAMERA_ROTATION, gfc_vector3d(0, 0, playerData->playerRotation.z));
@@ -102,4 +109,13 @@ void _playerUpdate(Entity * self) {
         float targetRotation = self->rotation.z + (playerData->playerRotation.z - self->rotation.z) * 0.1;
         self->rotation.z = targetRotation;
     }
+}
+
+GFC_Vector3D getCameraPosition(Entity *self) {
+    PlayerData * playerData = getPlayerData(self);
+    GFC_Vector3D newCamPosition = CAMERA_OFFSET;
+    gfc_vector3d_rotate_about_x(&newCamPosition, playerData->playerRotation.x); 
+    gfc_vector3d_rotate_about_z(&newCamPosition, playerData->playerRotation.z);
+    newCamPosition = gfc_vector3d_added(newCamPosition, self->position);
+    return newCamPosition;
 }
