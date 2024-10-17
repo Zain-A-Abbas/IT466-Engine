@@ -24,9 +24,9 @@
 #include "gf3d_camera.h"
 #include "gf3d_texture.h"
 #include "gf3d_draw.h"
-#include "Entity.cpp"
-#include "Player.cpp"
-#include "Reticle.cpp"
+#include "Entity.hpp"
+#include "Player.hpp"
+#include "Reticle.hpp"
 
 extern int __DEBUG;
 

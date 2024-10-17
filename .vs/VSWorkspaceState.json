@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\gfc",
+    "\\gfc\\simple_logger",
+    "\\src",
+    "\\test"
   ],
-  "SelectedNode": "\\libs",
+  "SelectedNode": "\\src\\game.c",
   "PreviewInSolutionExplorer": false
 }
