@@ -46,7 +46,8 @@ void draw_origin()
 {
     gf3d_draw_edge_3d(
         gfc_edge3d_from_vectors(gfc_vector3d(-100,0,0),gfc_vector3d(100,0,0)),
-        gfc_vector3d(0,0,0),gfc_vector3d(0,0,0),gfc_vector3d(1,1,1),0.1,gfc_color(1,0,0,1));
+        gfc_vector3d(0,0,0),
+        gfc_vector3d(0,0,0),gfc_vector3d(1,1,1),0.1,gfc_color(1,0,0,1));
     gf3d_draw_edge_3d(
         gfc_edge3d_from_vectors(gfc_vector3d(0,-100,0),gfc_vector3d(0,100,0)),
         gfc_vector3d(0,0,0),gfc_vector3d(0,0,0),gfc_vector3d(1,1,1),0.1,gfc_color(0,1,0,1));
@@ -133,6 +134,17 @@ int main(int argc,char *argv[])
                 gf3d_model_draw_sky(sky,skyMat,GFC_COLOR_WHITE);
                 entityDrawAll();
                 draw_origin();
+
+                // Draw last player raycast
+                PlayerData * playerData = getPlayerData(player);
+                gf3d_draw_edge_3d(
+                    playerData->raycastTest,
+                    gfc_vector3d(0,0,0),
+                    gfc_vector3d(0,0,0),
+                    gfc_vector3d(1,1,1),
+                    0.1,
+                    playerData->raycastColor
+                );
             //2D draws
                 //gf2d_mouse_draw();
                 reticleDraw();

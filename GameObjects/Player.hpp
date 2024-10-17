@@ -6,6 +6,8 @@
 #include "gfc_input.h"
 #include "gf3d_camera.h"
 #include "Weapon.cpp"
+#include "gf3d_obj_load.h"
+#include "gf3d_draw.h"
 
 const float PLAYER_SPEED = 0.125;
 const float HORIZONTAL_MOUSE_SENSITIVITY = 0.025;
@@ -19,6 +21,8 @@ typedef struct PlayerData_S {
     GFC_Vector3D    playerRotation;
     GFC_Vector3D    playerVelocity;
     Weapon          *playerWeapons;
+    GFC_Edge3D      raycastTest;
+    GFC_Color       raycastColor;
 } PlayerData;
 
 
@@ -39,6 +43,14 @@ void playerFree(Entity * self);
 void _playerControls(Entity * self); 
 void _playerUpdate(Entity * self); 
 
+/**
+ * @brief Returns where the camera position should be
+ */
 GFC_Vector3D getCameraPosition(Entity *self);
+
+/**
+ * @brief Returns true if the player's raycast collides successfully
+ */
+int shot_collided(Entity *self, GFC_Edge3D raycast);
 
 #endif

@@ -17,6 +17,9 @@ Entity * createPlayer() {
     playerEntity->data = playerData;
     playerData->playerVelocity = gfc_vector3d(0, 0, 0);
     playerData->playerRotation = gfc_vector3d(M_PI, 0, 0);
+    
+    playerData->raycastTest = gfc_edge3d_from_vectors(gfc_vector3d(0, 0, 0), gfc_vector3d(0, 0, 0));
+    playerData->raycastColor = gfc_color(1.0, 0.0, 0.0, 1.0);
 
     playerData->playerWeapons = (Weapon*) malloc(10 * sizeof(Weapon));
     memset(playerData->playerWeapons, 0, 10 * sizeof(Weapon));
@@ -79,13 +82,23 @@ void _playerControls(Entity * self) {
 
     if (gfc_input_command_pressed("continue"))  {
         GFC_Vector3D raycastPosition = self->position;
-        GFC_Vector3D raycastAdd = gfc_vector3d(0, -12, 0);
+        GFC_Vector3D raycastAdd = gfc_vector3d(0, -32, 0);
         gfc_vector3d_rotate_about_z(&raycastAdd, playerData->playerRotation.z); 
         raycastPosition = gfc_vector3d_added(raycastPosition, raycastAdd);
         
         GFC_Edge3D raycast = gfc_edge3d_from_vectors(self->position, raycastPosition);
         slog("Current Position: %f, %f, %f", self->position.x, self->position.y, self->position.z);
-        slog("Raycast Position: %f, %f, %f", raycastPosition.x, raycastPosition.y, raycastPosition.z);
+        slog("Raycast End: %f, %f, %f", raycastPosition.x, raycastPosition.y, raycastPosition.z);
+
+        playerData->raycastTest = raycast;
+            playerData->raycastColor = gfc_color(1, 0, 0, 1);
+
+        int collided = shot_collided(self, raycast);
+        if (collided) {
+            slog("%d", collided);
+            playerData->raycastColor = gfc_color(0, 0, 1, 1);
+        }
+
     }
 }
 
@@ -109,6 +122,38 @@ void _playerUpdate(Entity *self) {
         float targetRotation = self->rotation.z + (playerData->playerRotation.z - self->rotation.z) * 0.1;
         self->rotation.z = targetRotation;
     }
+}
+
+int shot_collided(Entity *self, GFC_Edge3D raycast) {
+    for (int i = 0; i < entityManager.entityMax; i++) {
+    // Get non-player entities
+        if (entityManager.entityList[i]._in_use) {
+            if (&entityManager.entityList[i] == self) continue;
+            slog("Entity position: %f, %f, %f", entityManager.entityList[i].position.x, entityManager.entityList[i].position.y, entityManager.entityList[i].position.z);
+            Model *entityModel = entityManager.entityList[i].model;
+
+            // Get meshes
+            for (int i = 0; i < gfc_list_get_count(entityModel->mesh_list); i++) {
+                Mesh *mesh = gfc_list_get_nth(entityModel->mesh_list, i);
+                if (mesh) {
+                    // Get primitives
+                    for (int i = 0; i < gfc_list_get_count(mesh->primitives); i++) {
+                        MeshPrimitive *primitive = gfc_list_get_nth(mesh->primitives, i);
+                        if (primitive) {
+                            if (primitive->objData) {
+                                if (gf3d_obj_line_test(primitive->objData, raycast, NULL)) {
+                                    slog("Collided");
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+    }  
+    return false;
 }
 
 GFC_Vector3D getCameraPosition(Entity *self) {

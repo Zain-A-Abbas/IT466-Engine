@@ -577,4 +577,5 @@ Uint8 gf3d_obj_line_test(ObjData *obj, GFC_Edge3D e, GFC_Vector3D *contact) {
     
 }
 
+
 /*eol@eof*/
