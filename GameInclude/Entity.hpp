@@ -23,6 +23,11 @@ typedef struct Entity_S {
 
 } Entity;
 
+typedef struct {
+    Entity* entityList;
+    Uint32 entityMax;
+} EntityManager;
+
 /**
  * @brief Allocates blank entity for use
  * @return NULL on failure (no memory) | POINTER to entity

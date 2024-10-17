@@ -2,10 +2,6 @@
 #include "gfc_matrix.h"
 #include "Entity.hpp"
 
-typedef struct {
-    Entity *entityList;
-    Uint32 entityMax;
-} EntityManager;
 
 static EntityManager entityManager = {0};
 

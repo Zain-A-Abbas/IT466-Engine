@@ -5,6 +5,7 @@
 #include "simple_json.h"
 #include "gfc_types.h"
 #include "stdbool.h"
+#include <string.h>
 
 typedef void (*shoot)(void);
 
@@ -19,13 +20,12 @@ typedef struct Weapon
     int         currentAmmo;
     int         reserveAmmo;
     int         damage;
-    shoot       *shoot;
 } Weapon;
 
 /**
  * @brief Loads the weapon and returns the struct.
  */
-Weapon loadWeapon(char *weaponFile);
+Weapon loadWeapon(const char *weaponFile);
 
 /**
  * @brief Pistol's fire function.

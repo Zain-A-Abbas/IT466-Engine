@@ -1,7 +1,7 @@
 #include "Weapon.hpp"
 
 
-Weapon loadWeapon(char *weaponFile) {
+Weapon loadWeapon(const char *weaponFile) {
     SJson *weaponJson;
     weaponJson = sj_load(weaponFile);
     if (!weaponJson) {
@@ -42,8 +42,7 @@ Weapon loadWeapon(char *weaponFile) {
         maxReserveAmmo,
         0,
         0,
-        damage,
-        NULL
+        damage
     };
 
     slog("Weapon successfully created!");
