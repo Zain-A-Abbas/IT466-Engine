@@ -13,6 +13,7 @@ typedef struct Entity_S {
     GFC_Vector3D    position; 
     GFC_Vector3D    rotation;
     GFC_Vector3D    scale;
+    Uint8           collisionLayer;
     Model           *model; // POINTER to model
     // Behavior
     void (*think)   (struct Entity_S *self); // Called every frame on the entity
@@ -27,6 +28,8 @@ typedef struct {
     Entity* entityList;
     Uint32 entityMax;
 } EntityManager;
+
+extern EntityManager entityManager;
 
 /**
  * @brief Allocates blank entity for use
@@ -63,5 +66,6 @@ void entityThinkAll();
  * @param self POINTER to entity
  */
 void _entityFree(Entity *self);
+
 
 #endif

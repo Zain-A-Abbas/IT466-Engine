@@ -577,5 +577,27 @@ Uint8 gf3d_obj_line_test(ObjData *obj, GFC_Edge3D e, GFC_Vector3D *contact) {
     
 }
 
+Uint8 gf3d_entity_obj_line_test(ObjData* obj, Entity* ent, GFC_Edge3D e, GFC_Vector3D* contact) {
+    int i;
+    Uint32 index;
+    GFC_Triangle3D t;
+    if (!obj) return 0;
+    if (!obj->outFace || !obj->faceVertices) return 0;
+    for (i = 0; i < obj->face_count; i++) {
+        index = obj->outFace[i].verts[0];
+        t.a = obj->faceVertices[index].vertex;
+        index = obj->outFace[i].verts[1];
+        t.b = obj->faceVertices[index].vertex;
+        index = obj->outFace[i].verts[2];
+        t.c = obj->faceVertices[index].vertex;
+        t.a = gfc_vector3d_added(t.a, ent->position);
+        t.b = gfc_vector3d_added(t.b, ent->position);
+        t.c = gfc_vector3d_added(t.c, ent->position);
+        if (gfc_trigfc_angle_edge_test(e, t, contact)) return 1;
+    }
+    return 0;
+
+}
+
 
 /*eol@eof*/

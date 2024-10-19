@@ -25,6 +25,7 @@
 #include "gf3d_texture.h"
 #include "gf3d_draw.h"
 #include "Entity.hpp"
+#include "TerrainManager.hpp"
 #include "Player.hpp"
 #include "Reticle.hpp"
 
@@ -104,11 +105,15 @@ int main(int argc,char *argv[])
     assignCamera(player, gf3dGetCamera());
     SDL_SetRelativeMouseMode(SDL_TRUE);
 
-    // Create dummo
+    // Create dummy
     Entity * dinoTest = entityNew();
     dinoTest->model = gf3d_model_load("models/dino.model");
     dinoTest->position = gfc_vector3d(16, 16, 0); 
-
+    
+    // Create land
+    Entity* testGround = terrainEntityNew();
+    testGround->model = gf3d_model_load("models/primitives/testground.model");
+    testGround->position = gfc_vector3d(0, 0, -8);
 
     //windows
 
@@ -137,14 +142,16 @@ int main(int argc,char *argv[])
 
                 // Draw last player raycast
                 PlayerData * playerData = getPlayerData(player);
-                gf3d_draw_edge_3d(
-                    playerData->raycastTest,
-                    gfc_vector3d(0,0,0),
-                    gfc_vector3d(0,0,0),
-                    gfc_vector3d(1,1,1),
-                    0.1,
-                    playerData->raycastColor
-                );
+                if (playerData != NULL) {
+                    gf3d_draw_edge_3d(
+                        playerData->raycastTest,
+                        gfc_vector3d(0, 0, 0),
+                        gfc_vector3d(0, 0, 0),
+                        gfc_vector3d(1, 1, 1),
+                        0.5,
+                        playerData->raycastColor
+                    );
+                }
             //2D draws
                 //gf2d_mouse_draw();
                 reticleDraw();

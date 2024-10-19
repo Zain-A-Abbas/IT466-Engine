@@ -15,361 +15,989 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="gfc\include\gfc_actions.h">
+    <ClInclude Include="GameInclude\*.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_audio.h">
+    <ClInclude Include="GameInclude\*.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_callbacks.h">
+    <ClInclude Include="GameInclude\*.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_color.h">
+    <ClInclude Include="GameInclude\*.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_config.h">
+    <ClInclude Include="GameInclude\*.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_config_def.h">
+    <ClInclude Include="GameInclude\*.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_hashmap.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_input.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_list.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_matrix.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_noise.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_pak.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_primitives.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_shape.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_string.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_text.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_types.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\gfc_vector.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\include\miniz.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf2d_actor.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf2d_draw.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf2d_font.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf2d_mouse.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf2d_sprite.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_buffers.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_camera.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_commands.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_config.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_debug.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_device.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_draw.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_extensions.h">
+    <ClInclude Include="include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_gltf_parse.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_materials.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_mesh.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_model.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_obj_load.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_pipeline.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_shaders.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_swapchain.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_texture.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_uniform_buffers.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_validation.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_vgraphics.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\gf3d_vqueues.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameInclude\Bullet.hpp">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameInclude\Entity.hpp">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameInclude\light.hpp">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameInclude\Weapon.hpp">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_json\include\simple_json.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_json\include\simple_json_array.h">
+    <ClInclude Include="gfc\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_json\include\simple_json_error.h">
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_json\include\simple_json_list.h">
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_json\include\simple_json_object.h">
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_json\include\simple_json_parse.h">
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_json\include\simple_json_string.h">
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_json\include\simple_json_types.h">
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_json\include\simple_json_value.h">
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gfc\simple_logger\include\simple_logger.h">
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameInclude\Reticle.hpp">
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameInclude\Player.hpp">
+    <ClInclude Include="gfc\simple_logger\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInclude\*.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gfc\simple_json\include\*.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="gfc\src\gfc_actions.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_audio.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_callbacks.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_color.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_config.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_config_def.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_hashmap.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_input.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_list.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_matrix.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_noise.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_pak.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_primitives.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_shape.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_string.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_text.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_types.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\gfc_vector.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\src\miniz.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\game.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf2d_actor.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf2d_draw.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf2d_font.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf2d_mouse.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf2d_sprite.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_buffers.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_camera.c">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_commands.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_config.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_debug.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_device.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_draw.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_extensions.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_gltf_parse.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_materials.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_mesh.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_model.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_obj_load.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_pipeline.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_shaders.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_swapchain.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_texture.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_uniform_buffers.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_validation.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_vgraphics.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gf3d_vqueues.c">
+    <ClCompile Include="gfc\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\simple_json\src\simple_json.c">
+    <ClCompile Include="gfc\simple_json\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\simple_json\src\simple_json_array.c">
+    <ClCompile Include="gfc\simple_json\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\simple_json\src\simple_json_error.c">
+    <ClCompile Include="gfc\simple_json\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\simple_json\src\simple_json_list.c">
+    <ClCompile Include="gfc\simple_json\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\simple_json\src\simple_json_object.c">
+    <ClCompile Include="gfc\simple_json\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\simple_json\src\simple_json_parse.c">
+    <ClCompile Include="gfc\simple_json\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\simple_json\src\simple_json_string.c">
+    <ClCompile Include="gfc\simple_json\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gfc\simple_logger\src\simple_logger.c">
+    <ClCompile Include="gfc\simple_logger\src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Gamesrc\Objects\Entity.cpp">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Gamesrc\Objects\Player.cpp">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Gamesrc\Objects\Weapon.cpp">
+    <ClCompile Include="src\*.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gfc\simple_json\src\*.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+
   </ItemGroup>
 </Project>

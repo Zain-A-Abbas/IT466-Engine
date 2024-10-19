@@ -9,10 +9,6 @@
 #include "gf3d_obj_load.h"
 #include "gf3d_draw.h"
 
-const float PLAYER_SPEED = 0.125;
-const float HORIZONTAL_MOUSE_SENSITIVITY = 0.025;
-const int HIGHEST_X_DEGREES = 15; 
-const int LOWEST_X_DEGREES = -20; 
 #define CAMERA_OFFSET gfc_vector3d(-4, 20, 4)
 #define CAMERA_ROTATION gfc_vector3d(M_PI, 0, M_PI)
 
@@ -42,6 +38,11 @@ void playerFree(Entity * self);
 
 void _playerControls(Entity * self); 
 void _playerUpdate(Entity * self); 
+
+/**
+* @brief Gets the player data.
+*/
+PlayerData* getPlayerData(Entity* self);
 
 /**
  * @brief Returns where the camera position should be

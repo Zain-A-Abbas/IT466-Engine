@@ -1,5 +1,12 @@
 #include "Player.hpp"
 
+const float PLAYER_SPEED = 0.125;
+const float HORIZONTAL_MOUSE_SENSITIVITY = 0.025;
+const int MAX_RELATIVE_MOUSE_X = 10;
+const int HIGHEST_X_DEGREES = 15;
+const int LOWEST_X_DEGREES = -20;
+const float MAX_SLOPE_DEGREES = M_PI/ 4;
+
 Entity * createPlayer() {
     Entity * playerEntity = entityNew();
     playerEntity->think = think;
@@ -29,6 +36,10 @@ Entity * createPlayer() {
 }
 
 PlayerData * getPlayerData(Entity * self){
+
+    if (self == NULL || self->data == NULL) {
+        return NULL;
+    }
     return (PlayerData*) self->data;
 }
 
@@ -74,6 +85,11 @@ void _playerControls(Entity * self) {
 
     int mouseX, mouseY;
     SDL_GetRelativeMouseState(&mouseX, &mouseY);
+    if (mouseX > 10) {
+        mouseX = 10;
+    } else if (mouseX < -10) {
+        mouseX = -10;
+    }
     playerData->playerRotation.z -= mouseX * HORIZONTAL_MOUSE_SENSITIVITY;
     playerData->playerRotation.x += mouseY * HORIZONTAL_MOUSE_SENSITIVITY;
     if (playerData->playerRotation.x > HIGHEST_X_DEGREES * GFC_DEGTORAD) playerData->playerRotation.x = HIGHEST_X_DEGREES * GFC_DEGTORAD;
@@ -95,7 +111,6 @@ void _playerControls(Entity * self) {
 
         int collided = shot_collided(self, raycast);
         if (collided) {
-            slog("%d", collided);
             playerData->raycastColor = gfc_color(0, 0, 1, 1);
         }
 
@@ -122,27 +137,29 @@ void _playerUpdate(Entity *self) {
         float targetRotation = self->rotation.z + (playerData->playerRotation.z - self->rotation.z) * 0.1;
         self->rotation.z = targetRotation;
     }
+
 }
 
 int shot_collided(Entity *self, GFC_Edge3D raycast) {
     for (int i = 0; i < entityManager.entityMax; i++) {
     // Get non-player entities
         if (entityManager.entityList[i]._in_use) {
+            slog("In the house like carpet");
             if (&entityManager.entityList[i] == self) continue;
             slog("Entity position: %f, %f, %f", entityManager.entityList[i].position.x, entityManager.entityList[i].position.y, entityManager.entityList[i].position.z);
             Model *entityModel = entityManager.entityList[i].model;
 
             // Get meshes
-            for (int i = 0; i < gfc_list_get_count(entityModel->mesh_list); i++) {
-                Mesh *mesh = (Mesh*) gfc_list_get_nth(entityModel->mesh_list, i);
+            for (int j = 0; j < gfc_list_get_count(entityModel->mesh_list); j++) {
+                Mesh *mesh = (Mesh*) gfc_list_get_nth(entityModel->mesh_list, j);
                 if (mesh) {
                     // Get primitives
-                    for (int i = 0; i < gfc_list_get_count(mesh->primitives); i++) {
-                        MeshPrimitive *primitive = (MeshPrimitive*) gfc_list_get_nth(mesh->primitives, i);
+                    for (int k = 0; k < gfc_list_get_count(mesh->primitives); k++) {
+                        MeshPrimitive *primitive = (MeshPrimitive*) gfc_list_get_nth(mesh->primitives, k);
                         if (primitive) {
                             if (primitive->objData) {
-                                if (gf3d_obj_line_test(primitive->objData, raycast, NULL)) {
-                                    slog("Collided");
+                                if (gf3d_entity_obj_line_test(primitive->objData, &entityManager.entityList[i], raycast, NULL)) {
+                                    slog("Collided on %d", i);
                                     return true;
                                 }
                             }

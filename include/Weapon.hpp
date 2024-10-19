@@ -9,7 +9,6 @@
 
 typedef void (*shoot)(void);
 
-const char* WEAPON_LIST[] = {"Pistol"};
 
 typedef struct Weapon
 {

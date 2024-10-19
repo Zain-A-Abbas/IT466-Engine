@@ -1,5 +1,6 @@
 #include "Weapon.hpp"
 
+static const char* WEAPON_LIST[] = { "Pistol" };
 
 Weapon loadWeapon(const char *weaponFile) {
     SJson *weaponJson;

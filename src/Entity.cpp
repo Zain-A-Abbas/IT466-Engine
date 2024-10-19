@@ -3,7 +3,7 @@
 #include "Entity.hpp"
 
 
-static EntityManager entityManager = {0};
+EntityManager entityManager = { 0 };
 
 Entity * entityNew() {
     for (int i = 0; i < entityManager.entityMax; ++i) {
@@ -42,6 +42,7 @@ void entitySystemClose() {
     }
     memset(&entityManager, 0, sizeof(EntityManager));
 }
+
 
 void _entityDraw(Entity * self) {
     if (!self) return;
