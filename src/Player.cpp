@@ -1,13 +1,13 @@
 #include "Player.hpp"
 
-const float PLAYER_SPEED = 0.25;
+const float PLAYER_SPEED = 0.4;
 const float HORIZONTAL_MOUSE_SENSITIVITY = 0.025;
 const int MAX_RELATIVE_MOUSE_X = 10;
 const int HIGHEST_X_DEGREES = 15;
 const int LOWEST_X_DEGREES = -20;
 
 const float MAX_SLOPE_DEGREES = M_PI / 4;
-const float PLAYER_GRAVITY_RAYCAST_HEIGHT = 6;
+const float PLAYER_GRAVITY_RAYCAST_HEIGHT = 6.5;
 const float GRAVITY = -0.098;
 
 float previousFloorAngle = 0.0;
@@ -108,22 +108,26 @@ void _playerControls(Entity * self) {
     GFC_Vector3D contact = { 0 };
     if (isOnFloor(self, &floorNormal, &contact)) {
         float floorAngle = M_PI / 2 - asinf(floorNormal.z);
+        // Make it snap to a certain height when traversing on ground with a lower angle than on the previous frame to account for slightly dipping into the floor
         if (previousFloorAngle > floorAngle) {
             snapZ = contact.z + PLAYER_GRAVITY_RAYCAST_HEIGHT;
             snapToSnapZ = true;
         }
+
         previousFloorAngle = floorAngle;
 
         GFC_Vector3D horizontalDirection = gfc_vector3d(playerData->playerVelocity.x, playerData->playerVelocity.y, 0);
         gfc_vector3d_normalize(&horizontalDirection);
+        // Used to determine if moving up or down
         float dotProduct = gfc_vector3d_dot_product(floorNormal, horizontalDirection);
         float horizontalMagnitude = sqrtf(pow(playerData->playerVelocity.x, 2) + pow(playerData->playerVelocity.y, 2));
 
-        // Get the dot product as if parallel to the slope
+        // Get the dot product as if parallel to the slope, to slow down vertical movement in case the player is not moving parallel to it
         GFC_Vector3D opposite = gfc_vector3d(-floorNormal.x, -floorNormal.y, 0);
         gfc_vector3d_normalize(&opposite);
         float parallelDotProduct = gfc_vector3d_dot_product(floorNormal, opposite);
 
+        // Uses tanf rather than sinf as the horizontal speed should not adjust with the angle of the slope
         float floorRatio = tanf(floorAngle) * fabs(dotProduct / parallelDotProduct);
 
         if (dotProduct < 0) {
@@ -207,6 +211,9 @@ int isOnFloor(Entity* self, GFC_Vector3D * floorNormal, GFC_Vector3D * contact) 
 
             // Found terrain
             if (entityRaycastTest(&entityManager.entityList[i], gravityRaycast, contact, &t)) {
+                /*slog("%f, %f, %f", t.a.x, t.a.y, t.a.z);
+                slog("%f, %f, %f", t.b.x, t.b.y, t.b.z);
+                slog("%f, %f, %f", t.c.x, t.c.y, t.c.z);*/
                 *floorNormal = gfc_trigfc_angle_get_normal(t);
                 return true;
             }
@@ -234,7 +241,7 @@ int shotCollided(Entity *self, GFC_Edge3D raycast) {
 
 GFC_Vector3D getCameraPosition(Entity *self) {
     PlayerData * playerData = getPlayerData(self);
-    GFC_Vector3D newCamPosition = CAMERA_OFFSET;
+    GFC_Vector3D newCamPosition = FAR_CAMERA_OFFSET;
     gfc_vector3d_rotate_about_x(&newCamPosition, playerData->playerRotation.x); 
     gfc_vector3d_rotate_about_z(&newCamPosition, playerData->playerRotation.z);
     newCamPosition = gfc_vector3d_added(newCamPosition, self->position);

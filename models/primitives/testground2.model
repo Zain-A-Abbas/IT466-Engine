@@ -1,6 +1,7 @@
 {
     "model":
     {
-        "obj":"models/primitives/testground2.obj"
+        "obj":"models/primitives/testground2.obj",
+        "texture":"models/primitives/testground2.png"
     }
 }

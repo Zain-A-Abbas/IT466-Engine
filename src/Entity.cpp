@@ -1,6 +1,7 @@
 #include "simple_logger.h"
 #include "gfc_matrix.h"
 #include "Entity.hpp"
+#include "gf3d_obj_load.h"
 
 
 EntityManager entityManager = { 0 };
