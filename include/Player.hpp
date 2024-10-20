@@ -6,7 +6,6 @@
 #include "gfc_input.h"
 #include "gf3d_camera.h"
 #include "Weapon.hpp"
-#include "gf3d_obj_load.h"
 #include "gf3d_draw.h"
 
 #define CAMERA_OFFSET gfc_vector3d(-4, 20, 4)
@@ -50,8 +49,14 @@ PlayerData* getPlayerData(Entity* self);
 GFC_Vector3D getCameraPosition(Entity *self);
 
 /**
+* @brief Checks if player is on ground or not.
+* @param The player entity
+* @param The angle of the ground, if the player is on the floor
+*/
+int isOnFloor(Entity* self, float* floorAngle);
+/**
  * @brief Returns true if the player's raycast collides successfully
  */
-int shot_collided(Entity *self, GFC_Edge3D raycast);
+int shotCollided(Entity *self, GFC_Edge3D raycast);
 
 #endif

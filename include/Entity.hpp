@@ -6,7 +6,6 @@
 #include "gfc_vector.h"
 #include "gf3d_model.h"
 
-
 typedef struct Entity_S {
     Uint8           _in_use; // Active memory
     GFC_TextLine    name; // Entity Name
@@ -67,5 +66,9 @@ void entityThinkAll();
  */
 void _entityFree(Entity *self);
 
+/**
+* @brief Return whether or not the following raycast intersected an entity or not
+*/
+int entityRaycastTest(Entity* entity, GFC_Edge3D raycast, GFC_Vector3D* contact, GFC_Triangle3D* t);
 
 #endif

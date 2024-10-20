@@ -130,3 +130,26 @@ void _entityFree(Entity *self) {
     gf3d_model_free(self->model);
     memset(self, 0, sizeof(Entity));
 }
+
+int entityRaycastTest(Entity * entity, GFC_Edge3D raycast, GFC_Vector3D *contact, GFC_Triangle3D * t) {
+    Model* entityModel = entity->model;
+    // Get meshes
+    for (int j = 0; j < gfc_list_get_count(entityModel->mesh_list); j++) {
+        Mesh* mesh = (Mesh*)gfc_list_get_nth(entityModel->mesh_list, j);
+        if (mesh) {
+            // Get primitives
+            for (int k = 0; k < gfc_list_get_count(mesh->primitives); k++) {
+                MeshPrimitive* primitive = (MeshPrimitive*)gfc_list_get_nth(mesh->primitives, k);
+                if (primitive) {
+                    if (primitive->objData) {
+                        if (gf3d_entity_obj_line_test(primitive->objData, entity, raycast, contact, t)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    return false;
+}

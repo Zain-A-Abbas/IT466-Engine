@@ -112,7 +112,7 @@ int main(int argc,char *argv[])
     
     // Create land
     Entity* testGround = terrainEntityNew();
-    testGround->model = gf3d_model_load("models/primitives/testground.model");
+    testGround->model = gf3d_model_load("models/primitives/testground2.model");
     testGround->position = gfc_vector3d(0, 0, -8);
 
     //windows
