@@ -8,4 +8,4 @@
 */
 Entity * terrainEntityNew();
 
-#endif __COLLISION_MANAGER__
+#endif

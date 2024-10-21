@@ -27,6 +27,7 @@
 #include "Entity.hpp"
 #include "TerrainManager.hpp"
 #include "Player.hpp"
+#include "Enemy.hpp"
 #include "Reticle.hpp"
 
 extern int __DEBUG;
@@ -98,17 +99,18 @@ int main(int argc,char *argv[])
     gf3d_camera_set_rotate_step(0.05);
     
     gf3d_camera_enable_free_look(1);
-    entitySystemInit(1024);
+    entitySystemInit(2048);
 
     // Create player
     Entity * player = createPlayer();
     assignCamera(player, gf3dGetCamera());
     SDL_SetRelativeMouseMode(SDL_TRUE);
 
-    // Create dummy
-    Entity * dinoTest = entityNew();
-    dinoTest->model = gf3d_model_load("models/dino.model");
-    dinoTest->position = gfc_vector3d(16, 16, 0); 
+    // Create dummy enemies
+    Entity* enemy1 = enemyEntityNew();
+    enemy1->position = gfc_vector3d(4, 4, -8);
+    Entity* enemy2 = enemyEntityNew();
+    enemy2->position = gfc_vector3d(-4, 4, -8);
     
     // Create land
     Entity* testGround = terrainEntityNew();
@@ -141,7 +143,7 @@ int main(int argc,char *argv[])
                 draw_origin();
 
                 // Draw last player raycast
-               /* PlayerData* playerData = getPlayerData(player);
+               /*PlayerData* playerData = getPlayerData(player);
                 if (playerData != NULL) {
                     GFC_Triangle3D t = { 0 };
                     GFC_Vector3D gravityRaycastDir = gfc_vector3d(0, 0, -6.5);

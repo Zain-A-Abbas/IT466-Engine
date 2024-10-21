@@ -32,8 +32,6 @@ Entity * createPlayer() {
     playerData->playerVelocity = gfc_vector3d(0, 0, 0);
     playerData->playerRotation = gfc_vector3d(M_PI, 0, 0);
     
-    playerData->raycastTest = gfc_edge3d_from_vectors(gfc_vector3d(0, 0, 0), gfc_vector3d(0, 0, 0));
-    playerData->raycastColor = gfc_color(1.0, 0.0, 0.0, 1.0);
 
     playerData->playerWeapons = (Weapon*) malloc(10 * sizeof(Weapon));
     memset(playerData->playerWeapons, 0, 10 * sizeof(Weapon));
@@ -74,7 +72,8 @@ void update(Entity * self) {
 
 void _playerControls(Entity * self) {
     PlayerData * playerData = getPlayerData(self);
-
+    
+    // Horizontal movement
     GFC_Vector2D inputVector = gfc_vector2d(
         gfc_input_command_down("walkright") - gfc_input_command_down("walkleft"),
         gfc_input_command_down("walkforward") - gfc_input_command_down("walkback")
@@ -91,6 +90,7 @@ void _playerControls(Entity * self) {
     playerData->playerVelocity.x = movementVelocity.x;
     playerData->playerVelocity.y = movementVelocity.y;
 
+    // Mouse rotation
     int mouseX, mouseY;
     SDL_GetRelativeMouseState(&mouseX, &mouseY);
     if (mouseX > 10) {
@@ -103,7 +103,7 @@ void _playerControls(Entity * self) {
     if (playerData->playerRotation.x > HIGHEST_X_DEGREES * GFC_DEGTORAD) playerData->playerRotation.x = HIGHEST_X_DEGREES * GFC_DEGTORAD;
     if (playerData->playerRotation.x < LOWEST_X_DEGREES * GFC_DEGTORAD) playerData->playerRotation.x = LOWEST_X_DEGREES * GFC_DEGTORAD;
     
-
+    // Gravity/slope movement
     GFC_Vector3D floorNormal;
     GFC_Vector3D contact = { 0 };
     if (isOnFloor(self, &floorNormal, &contact)) {
@@ -145,26 +145,30 @@ void _playerControls(Entity * self) {
     }
 
 
-
-    if (gfc_input_command_pressed("continue"))  {
+    // Attacking
+    if (gfc_input_command_pressed("continue")) {
+        playerData->playerWeapons[0].shoot(&playerData->playerWeapons[0], self->position, playerData->playerRotation, getCameraPosition(self));
+        /*
         GFC_Vector3D raycastPosition = self->position;
         GFC_Vector3D raycastAdd = gfc_vector3d(0, -32, 0);
-        gfc_vector3d_rotate_about_z(&raycastAdd, playerData->playerRotation.z); 
+        gfc_vector3d_rotate_about_z(&raycastAdd, playerData->playerRotation.z);
         raycastPosition = gfc_vector3d_added(raycastPosition, raycastAdd);
-        
+
         GFC_Edge3D raycast = gfc_edge3d_from_vectors(self->position, raycastPosition);
         //slog("Current Position: %f, %f, %f", self->position.x, self->position.y, self->position.z);
         //slog("Raycast End: %f, %f, %f", raycastPosition.x, raycastPosition.y, raycastPosition.z);
 
-        float groundAngle = 0.0;
+
         playerData->raycastTest = raycast;
         playerData->raycastColor = gfc_color(1, 0, 0, 1);
 
         int collided = shotCollided(self, raycast);
         if (collided) {
+            slog("Hit");
             playerData->raycastColor = gfc_color(0, 0, 1, 1);
         }
 
+    }*/
     }
 }
 
@@ -196,6 +200,20 @@ void _playerUpdate(Entity *self) {
         self->rotation.z = targetRotation;
     }
 
+    if (playerData != NULL) {
+        GFC_Triangle3D t = { 0 };
+        GFC_Vector3D gravityRaycastDir = gfc_vector3d(0, 0, -6.5);
+        GFC_Edge3D gravityRaycast = gfc_edge3d_from_vectors(self->position, gfc_vector3d_added(self->position, gravityRaycastDir));
+        gf3d_draw_edge_3d(
+            gravityRaycast,
+            gfc_vector3d(0, 0, 0),
+            gfc_vector3d(0, 0, 0),
+            gfc_vector3d(1, 1, 1),
+            0.5,
+            gfc_color(1.0, 1.0, 0.0, 1.0)
+        );
+    }
+
 }
 
 int isOnFloor(Entity* self, GFC_Vector3D * floorNormal, GFC_Vector3D * contact) {
@@ -205,7 +223,7 @@ int isOnFloor(Entity* self, GFC_Vector3D * floorNormal, GFC_Vector3D * contact) 
     for (int i = 0; i < entityManager.entityMax; i++) {
         // Get ground entitiesentities
         if (entityManager.entityList[i]._in_use) {
-            if (entityManager.entityList[i].collisionLayer != 1) {
+            if (!isOnLayer(&entityManager.entityList[i], 1)) {
                 continue;
             }
 
@@ -223,21 +241,7 @@ int isOnFloor(Entity* self, GFC_Vector3D * floorNormal, GFC_Vector3D * contact) 
     
 }
 
-int shotCollided(Entity *self, GFC_Edge3D raycast) {
-    GFC_Triangle3D t = {0};
-    for (int i = 0; i < entityManager.entityMax; i++) {
-    // Get non-player entities
-        if (entityManager.entityList[i]._in_use) {
-            //slog("In the house like carpet");
-            if (&entityManager.entityList[i] == self) continue;
-            //slog("Entity position: %f, %f, %f", entityManager.entityList[i].position.x, entityManager.entityList[i].position.y, entityManager.entityList[i].position.z);
-            if (entityRaycastTest(&entityManager.entityList[i], raycast, NULL, &t)) {
-                return true;
-            }
-        }
-    }  
-    return false;
-}
+
 
 GFC_Vector3D getCameraPosition(Entity *self) {
     PlayerData * playerData = getPlayerData(self);

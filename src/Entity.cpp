@@ -132,6 +132,11 @@ void _entityFree(Entity *self) {
     memset(self, 0, sizeof(Entity));
 }
 
+
+int isOnLayer(Entity * self, int layer) {
+    return ((self->collisionLayer >> layer) & 1);
+}
+
 int entityRaycastTest(Entity * entity, GFC_Edge3D raycast, GFC_Vector3D *contact, GFC_Triangle3D * t) {
     Model* entityModel = entity->model;
     // Get meshes

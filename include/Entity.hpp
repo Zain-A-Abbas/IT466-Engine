@@ -71,4 +71,9 @@ void _entityFree(Entity *self);
 */
 int entityRaycastTest(Entity* entity, GFC_Edge3D raycast, GFC_Vector3D* contact, GFC_Triangle3D* t);
 
+/**
+* @brief Check if the entity is on a collision layer or not
+*/
+int isOnLayer(Entity* self, int layer);
+
 #endif

@@ -55,9 +55,6 @@ GFC_Vector3D getCameraPosition(Entity *self);
 * @param The angle of the ground, if the player is on the floor
 */
 int isOnFloor(Entity* self, float* floorAngle);
-/**
- * @brief Returns true if the player's raycast collides successfully
- */
-int shotCollided(Entity *self, GFC_Edge3D raycast);
+
 
 #endif

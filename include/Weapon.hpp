@@ -6,11 +6,11 @@
 #include "gfc_types.h"
 #include "stdbool.h"
 #include <string.h>
+#include "Entity.hpp"
 
-typedef void (*shoot)(void);
 
 
-typedef struct Weapon
+typedef struct Weapon_S
 {
     const char        *name;
     int         cartridgeSize;
@@ -19,6 +19,13 @@ typedef struct Weapon
     int         currentAmmo;
     int         reserveAmmo;
     int         damage;
+    // Behavior
+    void (*shoot)   (
+        struct Weapon_S * weapon,
+        GFC_Vector3D playerPosition,
+        GFC_Vector3D playerRotation,
+        GFC_Vector3D cameraPosition
+        ); // The weapon's fire function
 } Weapon;
 
 /**
@@ -26,9 +33,10 @@ typedef struct Weapon
  */
 Weapon loadWeapon(const char *weaponFile);
 
+int shotCollided(Entity* self, GFC_Edge3D raycast);
 /**
  * @brief Pistol's fire function.
  */
-void pistolFire();
+void pistolFire(Weapon * weapon, GFC_Vector3D playerPosition, GFC_Vector3D playerRotation, GFC_Vector3D cameraPosition);
 
 #endif

@@ -2,7 +2,7 @@
 #include "gfc_matrix.h"
 #include "TerrainManager.hpp"
 
-const int TERRAIN_LAYER = 1;
+const Uint8 TERRAIN_LAYERS = 0b00000010;
 
 Entity * terrainEntityNew() {
 	Entity* terrainEntity = entityNew();
@@ -10,6 +10,6 @@ Entity * terrainEntityNew() {
 		slog("Terrain Entity could not be created");
 		return NULL;
 	}
-	terrainEntity->collisionLayer = TERRAIN_LAYER;
+	terrainEntity->collisionLayer = TERRAIN_LAYERS;
 	return terrainEntity;
 };
