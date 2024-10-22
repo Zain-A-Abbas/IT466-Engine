@@ -1,14 +1,15 @@
 #include "Player.hpp"
 
-const float PLAYER_SPEED = 0.4;
-const float HORIZONTAL_MOUSE_SENSITIVITY = 0.025;
+const float PLAYER_SPEED = 10;
+const float HORIZONTAL_MOUSE_SENSITIVITY = 1.28;
+const float VERTICAL_MOUSE_SENSITIVITY = 0.96;
 const int MAX_RELATIVE_MOUSE_X = 10;
 const int HIGHEST_X_DEGREES = 15;
 const int LOWEST_X_DEGREES = -20;
 
 const float MAX_SLOPE_DEGREES = M_PI / 4;
 const float PLAYER_GRAVITY_RAYCAST_HEIGHT = 6.5;
-const float GRAVITY = -0.098;
+const float GRAVITY = -0.48;
 
 float previousFloorAngle = 0.0;
 float snapZ = 0.0;
@@ -61,16 +62,16 @@ void playerFree(Entity * self) {
     }
 }
 
-void think(Entity * self) {
-    _playerControls(self);
+void think(Entity * self, float delta) {
+    _playerControls(self, delta);
 }
 
 
-void update(Entity * self) {
-    _playerUpdate(self);
+void update(Entity * self, float delta) {
+    _playerUpdate(self, delta);
 }   
 
-void _playerControls(Entity * self) {
+void _playerControls(Entity * self, float delta) {
     PlayerData * playerData = getPlayerData(self);
     
     // Horizontal movement
@@ -82,8 +83,8 @@ void _playerControls(Entity * self) {
 
     GFC_Vector3D movementVelocity = gfc_vector3d(inputVector.x, inputVector.y, 0);
 
-    movementVelocity.x *= PLAYER_SPEED;
-    movementVelocity.y *= PLAYER_SPEED;
+    movementVelocity.x *= PLAYER_SPEED * delta;
+    movementVelocity.y *= PLAYER_SPEED * delta;
     movementVelocity.x *= -1;
     movementVelocity.y *= -1;
 
@@ -98,8 +99,8 @@ void _playerControls(Entity * self) {
     } else if (mouseX < -10) {
         mouseX = -10;
     }
-    playerData->playerRotation.z -= mouseX * HORIZONTAL_MOUSE_SENSITIVITY;
-    playerData->playerRotation.x += mouseY * HORIZONTAL_MOUSE_SENSITIVITY;
+    playerData->playerRotation.z -= mouseX * HORIZONTAL_MOUSE_SENSITIVITY * delta;
+    playerData->playerRotation.x += mouseY * VERTICAL_MOUSE_SENSITIVITY * delta;
     if (playerData->playerRotation.x > HIGHEST_X_DEGREES * GFC_DEGTORAD) playerData->playerRotation.x = HIGHEST_X_DEGREES * GFC_DEGTORAD;
     if (playerData->playerRotation.x < LOWEST_X_DEGREES * GFC_DEGTORAD) playerData->playerRotation.x = LOWEST_X_DEGREES * GFC_DEGTORAD;
     
@@ -141,7 +142,7 @@ void _playerControls(Entity * self) {
 
     } else {
         snapToSnapZ = false;
-        playerData->playerVelocity.z += GRAVITY;
+        playerData->playerVelocity.z += GRAVITY * delta;
     }
 
 
@@ -179,8 +180,8 @@ void _playerUpdate(Entity *self) {
     self->position.y += playerData->playerVelocity.y;
     self->position.z += playerData->playerVelocity.z;
     if (snapToSnapZ) {
-        slog("Pos z: %f", self->position.z);
-        slog("Snap z: %f", snapZ);
+        //slog("Pos z: %f", self->position.z);
+        //slog("Snap z: %f", snapZ);
         self->position.z = snapZ;
         snapToSnapZ = false;
     }

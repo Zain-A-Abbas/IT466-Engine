@@ -33,11 +33,11 @@
 extern int __DEBUG;
 
 static int _done = 0;
-static Uint32 frame_delay = 33;
+static Uint32 frame_delay = 16;
 static float fps = 0;
 
 void parse_arguments(int argc,char *argv[]);
-void game_frame_delay();
+void game_frame_delay(float* delta);
 
 void exitGame()
 {
@@ -117,16 +117,19 @@ int main(int argc,char *argv[])
     testGround->model = gf3d_model_load("models/primitives/testground2.model");
     testGround->position = gfc_vector3d(0, 0, -8);
 
-    //windows
+    //Delta time
+    float delta = 0.0;
+    game_frame_delay(&delta);
 
-    // main game loop    
+
+    // main game loop
     while(!_done)
     {
         gfc_input_update();
         gf2d_mouse_update();
         gf2d_font_update();
-        entityThinkAll();
-        entityUpdateAll();
+        entityThinkAll(delta);
+        entityUpdateAll(delta);
         //camera updaes
         //gf3d_camera_controls_update();
         gf3d_camera_update_view();
@@ -165,7 +168,7 @@ int main(int argc,char *argv[])
 
 
         if (gfc_input_command_down("exit"))_done = 1; // exit condition
-        game_frame_delay();
+        game_frame_delay(&delta);
     }    
     vkDeviceWaitIdle(gf3d_vgraphics_get_default_logical_device());    
     //cleanup
@@ -188,7 +191,7 @@ void parse_arguments(int argc,char *argv[])
     }    
 }
 
-void game_frame_delay()
+void game_frame_delay(float * delta)
 {
     Uint32 diff;
     static Uint32 now;
@@ -197,11 +200,13 @@ void game_frame_delay()
     slog_sync();// make sure logs get written when we have time to write it
     now = SDL_GetTicks();
     diff = (now - then);
+    *delta = (float)diff / 1000;
     if (diff < frame_delay)
     {
         SDL_Delay(frame_delay - diff);
     }
     fps = 1000.0/MAX(SDL_GetTicks() - then,0.001);
-//     slog("fps: %f",fps);
+    //slog("fps: %f", fps);
+    //slog("Delta: %f", *delta);
 }
 /*eol@eof*/

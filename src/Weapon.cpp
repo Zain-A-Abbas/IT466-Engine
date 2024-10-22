@@ -54,20 +54,32 @@ Weapon loadWeapon(const char *weaponFile) {
     return newWeapon;
 }
 
-int shotCollided(Entity* self, GFC_Edge3D raycast) {
+Entity * shotCollided(GFC_Edge3D raycast) {
+    Entity* hitEntity = NULL;
     GFC_Triangle3D t = { 0 };
     for (int i = 0; i < entityManager.entityMax; i++) {
+        Entity * currEntity = &entityManager.entityList[i];
         // Get non-player entities
-        if (entityManager.entityList[i]._in_use) {
-            //slog("In the house like carpet");
-            if (&entityManager.entityList[i] == self) continue;
+        if (currEntity->_in_use) {
+            // If the entity is not an enemy then skip
+            if (currEntity->type != ENEMY) {
+                continue;
+            };
             //slog("Entity position: %f, %f, %f", entityManager.entityList[i].position.x, entityManager.entityList[i].position.y, entityManager.entityList[i].position.z);
-            if (entityRaycastTest(&entityManager.entityList[i], raycast, NULL, &t)) {
-                return true;
+            if (entityRaycastTest(currEntity, raycast, NULL, &t)) {
+                // If an entity has already been hit, then assign the new one only if it's closer
+                if (!hitEntity) {
+                    hitEntity = currEntity;
+                } else {
+                    if (gfc_vector3d_magnitude_between_squared(raycast.a, currEntity->position) < gfc_vector3d_magnitude_between_squared(raycast.a, hitEntity->position)) {
+                        hitEntity = currEntity;
+                    }
+                }
+
             }
         }
     }
-    return false;
+    return hitEntity;
 }
 
 void pistolFire(Weapon* weapon, GFC_Vector3D playerPosition, GFC_Vector3D playerRotation, GFC_Vector3D cameraPosition) {
@@ -77,7 +89,14 @@ void pistolFire(Weapon* weapon, GFC_Vector3D playerPosition, GFC_Vector3D player
     gfc_vector3d_rotate_about_z(&raycastAdd, playerRotation.z);
     raycastAdd = gfc_vector3d_added(raycastStart, raycastAdd);
     GFC_Edge3D raycast = gfc_edge3d_from_vectors(raycastStart, raycastAdd);
-    slog("Raycast start: %f, %f, %f", raycastStart.x, raycastStart.y, raycastStart.z);
-    slog("Raycast end: %f, %f, %f", raycastAdd.x, raycastAdd.y, raycastAdd.z);
+    //slog("Raycast start: %f, %f, %f", raycastStart.x, raycastStart.y, raycastStart.z);
+    //slog("Raycast end: %f, %f, %f", raycastAdd.x, raycastAdd.y, raycastAdd.z);
+
+    Entity* hitEntity = shotCollided(raycast);
+    if (!hitEntity) {
+        slog("Hit no enemy");
+        return;
+    }
+    slog("Hit enemy: %s", hitEntity->name);
 
 }

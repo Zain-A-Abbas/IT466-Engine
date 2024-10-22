@@ -32,12 +32,12 @@ Entity * createPlayer();
  */
 void assignCamera(Entity * self, Camera * newCam);
 
-void think(Entity * self);
-void update(Entity * self);
+void think(Entity * self, float delta);
+void update(Entity * self, float delta);
 void playerFree(Entity * self);
 
-void _playerControls(Entity * self); 
-void _playerUpdate(Entity * self); 
+void _playerControls(Entity * self, float delta);
+void _playerUpdate(Entity * self, float delta);
 
 /**
 * @brief Gets the player data.

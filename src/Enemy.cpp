@@ -12,6 +12,7 @@ Entity * enemyEntityNew() {
 	}
 	enemyEntity->think = enemyThink;
 	enemyEntity->update = enemyUpdate;
+	enemyEntity->type = ENEMY;
 	enemyEntity->model = gf3d_model_load("models/dino.model");
 
 	EnemyData* enemyData = (EnemyData*)malloc(sizeof(EnemyData));

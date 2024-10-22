@@ -10,6 +10,7 @@ Entity * terrainEntityNew() {
 		slog("Terrain Entity could not be created");
 		return NULL;
 	}
+	terrainEntity->type = TERRAIN;
 	terrainEntity->collisionLayer = TERRAIN_LAYERS;
 	return terrainEntity;
 };

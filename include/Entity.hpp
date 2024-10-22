@@ -6,6 +6,15 @@
 #include "gfc_vector.h"
 #include "gf3d_model.h"
 
+typedef enum {
+    NONE,
+    PLAYER,
+    ENEMY,
+    INTERACTABLE,
+    TERRAIN,
+    OBJECT
+} EntityType;
+
 typedef struct Entity_S {
     Uint8           _in_use; // Active memory
     GFC_TextLine    name; // Entity Name
@@ -13,10 +22,11 @@ typedef struct Entity_S {
     GFC_Vector3D    rotation;
     GFC_Vector3D    scale;
     Uint8           collisionLayer;
+    EntityType      type;
     Model           *model; // POINTER to model
     // Behavior
-    void (*think)   (struct Entity_S *self); // Called every frame on the entity
-    void (*update)   (struct Entity_S *self); // Called every frame for entity state update
+    void (*think)   (struct Entity_S *self, float delta); // Called every frame on the entity
+    void (*update)   (struct Entity_S *self, float delta); // Called every frame for entity state update
     void (*draw)    (struct Entity_S *self); // Custom draw code
     void (*free)    (struct Entity_S *self); // Cleans up custom data
     void            *data; // Custom entity data
@@ -53,12 +63,12 @@ void entityDrawAll();
 /**
  * @brief Update all entities
  */
-void entityUpdateAll();
+void entityUpdateAll(float delta);
 
 /**
  * @brief Have all entities think
  */
-void entityThinkAll();
+void entityThinkAll(float delta);
 
 /**
  * @brief Return memory of previously allocated entity back to pool

@@ -86,43 +86,43 @@ void _entityDraw(Entity * self) {
     );
 }
 
-void _entityThink(Entity * self) {
+void _entityThink(Entity * self, float delta) {
     if (!self) return;
     
     if (self->think) {
-        self->think(self);
+        self->think(self, delta);
         return;
     }
 }
 
 
-void _entityUpdate(Entity * self) {
+void _entityUpdate(Entity * self, float delta) {
     if (!self) return;
     
     if (self->update) {
-        self->update(self);
+        self->update(self, delta);
         return;
     }
 }
 
-void entityDrawAll() {
+void entityDrawAll(float delta) {
     for (int i = 0; i < entityManager.entityMax; ++i) {
         if (!entityManager.entityList[i]._in_use) continue;
         _entityDraw(&entityManager.entityList[i]);
     }
 }
 
-void entityUpdateAll() {
+void entityUpdateAll(float delta) {
     for (int i = 0; i < entityManager.entityMax; ++i) {
         if (!entityManager.entityList[i]._in_use) continue;
-        _entityUpdate(&entityManager.entityList[i]);
+        _entityUpdate(&entityManager.entityList[i], delta);
     }
 }
 
-void entityThinkAll() {
+void entityThinkAll(float delta) {
     for (int i = 0; i < entityManager.entityMax; ++i) {
         if (!entityManager.entityList[i]._in_use) continue;
-        _entityThink(&entityManager.entityList[i]);
+        _entityThink(&entityManager.entityList[i], delta);
     }
 }
 

@@ -33,7 +33,7 @@ typedef struct Weapon_S
  */
 Weapon loadWeapon(const char *weaponFile);
 
-int shotCollided(Entity* self, GFC_Edge3D raycast);
+Entity* shotCollided(GFC_Edge3D raycast);
 /**
  * @brief Pistol's fire function.
  */
