@@ -1,6 +1,6 @@
 #include "simple_logger.h"
 #include "gfc_matrix.h"
-#include "TerrainManager.hpp"
+#include "TerrainManager.h"
 
 const Uint8 TERRAIN_LAYERS = 0b00000010;
 

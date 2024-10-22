@@ -1,6 +1,6 @@
 #include "simple_logger.h"
 #include "gfc_matrix.h"
-#include "Enemy.hpp"
+#include "Enemy.h"
 
 const Uint8 ENEMY_LAYERS = 0b00000100;
 

@@ -25,9 +25,9 @@ C:\Users\Zain\Documents\GitHub\IT466-Engine\gfc\src\gfc_text.c;C:\Users\Zain\Doc
 C:\Users\Zain\Documents\GitHub\IT466-Engine\gfc\src\gfc_types.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\gfc_types.obj
 C:\Users\Zain\Documents\GitHub\IT466-Engine\gfc\src\gfc_vector.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\gfc_vector.obj
 C:\Users\Zain\Documents\GitHub\IT466-Engine\gfc\src\miniz.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\miniz.obj
-C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Enemy.cpp;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Enemy.obj
-C:\Users\Zain\Documents\GitHub\IT466-Engine\src\TerrainManager.cpp;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\TerrainManager.obj
-C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Entity.cpp;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Entity.obj
+C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Enemy.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Enemy.obj
+C:\Users\Zain\Documents\GitHub\IT466-Engine\src\TerrainManager.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\TerrainManager.obj
+C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Entity.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Entity.obj
 C:\Users\Zain\Documents\GitHub\IT466-Engine\src\game.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\game.obj
 C:\Users\Zain\Documents\GitHub\IT466-Engine\src\gf2d_actor.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\gf2d_actor.obj
 C:\Users\Zain\Documents\GitHub\IT466-Engine\src\gf2d_draw.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\gf2d_draw.obj
@@ -55,6 +55,6 @@ C:\Users\Zain\Documents\GitHub\IT466-Engine\src\gf3d_uniform_buffers.c;C:\Users\
 C:\Users\Zain\Documents\GitHub\IT466-Engine\src\gf3d_validation.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\gf3d_validation.obj
 C:\Users\Zain\Documents\GitHub\IT466-Engine\src\gf3d_vgraphics.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\gf3d_vgraphics.obj
 C:\Users\Zain\Documents\GitHub\IT466-Engine\src\gf3d_vqueues.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\gf3d_vqueues.obj
-C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Player.cpp;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Player.obj
-C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Reticle.cpp;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Reticle.obj
-C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Weapon.cpp;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Weapon.obj
+C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Player.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Player.obj
+C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Reticle.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Reticle.obj
+C:\Users\Zain\Documents\GitHub\IT466-Engine\src\Weapon.c;C:\Users\Zain\Documents\GitHub\IT466-Engine\x64\Debug\Weapon.obj

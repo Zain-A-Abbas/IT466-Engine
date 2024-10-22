@@ -1,4 +1,4 @@
-#include "Weapon.hpp"
+#include "Weapon.h"
 
 static const char* WEAPON_LIST[] = { "Pistol" };
 

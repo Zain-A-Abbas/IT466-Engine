@@ -2,10 +2,10 @@
 #define __PLAYER__
 
 #include "simple_logger.h"
-#include "Entity.hpp"
+#include "Entity.h"
 #include "gfc_input.h"
 #include "gf3d_camera.h"
-#include "Weapon.hpp"
+#include "Weapon.h"
 #include "gf3d_draw.h"
 
 #define FAR_CAMERA_OFFSET gfc_vector3d(-8, 32, 4)

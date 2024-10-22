@@ -1,4 +1,4 @@
-#include "Player.hpp"
+#include "Player.h"
 
 const float PLAYER_SPEED = 10;
 const float HORIZONTAL_MOUSE_SENSITIVITY = 1.28;

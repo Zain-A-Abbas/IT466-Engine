@@ -906,13 +906,13 @@
     <ClInclude Include="gfc\simple_logger\include\simple_logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Bullet.hpp">
+    <ClInclude Include="include\Bullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\TerrainManager.hpp">
+    <ClInclude Include="include\TerrainManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Entity.hpp">
+    <ClInclude Include="include\Entity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\gf2d_actor.h">
@@ -993,19 +993,19 @@
     <ClInclude Include="include\gf3d_vqueues.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\light.hpp">
+    <ClInclude Include="include\light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Player.hpp">
+    <ClInclude Include="include\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Reticle.hpp">
+    <ClInclude Include="include\Reticle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Weapon.hpp">
+    <ClInclude Include="include\Weapon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Enemy.hpp">
+    <ClInclude Include="include\Enemy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1832,10 +1832,10 @@
     <ClCompile Include="gfc\src\miniz.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\TerrainManager.cpp">
+    <ClCompile Include="src\TerrainManager.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Entity.cpp">
+    <ClCompile Include="src\Entity.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\game.c">
@@ -1919,16 +1919,16 @@
     <ClCompile Include="src\gf3d_vqueues.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Player.cpp">
+    <ClCompile Include="src\Player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Reticle.cpp">
+    <ClCompile Include="src\Reticle.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Weapon.cpp">
+    <ClCompile Include="src\Weapon.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Enemy.cpp">
+    <ClCompile Include="src\Enemy.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

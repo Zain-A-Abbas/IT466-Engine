@@ -24,11 +24,11 @@
 #include "gf3d_camera.h"
 #include "gf3d_texture.h"
 #include "gf3d_draw.h"
-#include "Entity.hpp"
-#include "TerrainManager.hpp"
-#include "Player.hpp"
-#include "Enemy.hpp"
-#include "Reticle.hpp"
+#include "Entity.h"
+#include "TerrainManager.h"
+#include "Player.h"
+#include "Enemy.h"
+#include "Reticle.h"
 
 extern int __DEBUG;
 

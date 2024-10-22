@@ -33,7 +33,7 @@
 #include "gf3d_texture.h"
 #include "gf3d_mesh.h"
 #include "gf3d_materials.h"
-#include "light.hpp"
+#include "light.h"
 
 //all inclusive of features
 typedef struct

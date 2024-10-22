@@ -2,7 +2,7 @@
 #define __GF3D_OBJ_LOAD_H__
 
 #include "gf3d_mesh.h"
-#include "Entity.hpp"
+#include "Entity.h"
 
 struct ObjData_S
 {    

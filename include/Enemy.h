@@ -1,7 +1,7 @@
 #ifndef __ENEMY__
 #define __ENEMY__
 
-#include "Entity.hpp"
+#include "Entity.h"
 
 typedef struct EnemyData_S {
     GFC_Vector3D    enemyVelocity;

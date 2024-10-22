@@ -1,4 +1,4 @@
-#include "Reticle.hpp"
+#include "Reticle.h"
 
 static Reticle reticle = {0};
 

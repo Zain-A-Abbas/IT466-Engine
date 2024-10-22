@@ -1,6 +1,6 @@
 #include "simple_logger.h"
 #include "gfc_matrix.h"
-#include "Entity.hpp"
+#include "Entity.h"
 #include "gf3d_obj_load.h"
 
 
