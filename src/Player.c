@@ -176,7 +176,7 @@ void _playerControls(Entity * self, float delta) {
     }
 }
 
-void _playerUpdate(Entity *self) {
+void _playerUpdate(Entity * self, float delta) {
 
     PlayerData * playerData = getPlayerData(self);
     self->position.x += playerData->playerVelocity.x;

@@ -105,7 +105,7 @@ void _entityUpdate(Entity * self, float delta) {
     }
 }
 
-void entityDrawAll(float delta) {
+void entityDrawAll() {
     for (int i = 0; i < entityManager.entityMax; ++i) {
         if (!entityManager.entityList[i]._in_use) continue;
         _entityDraw(&entityManager.entityList[i]);

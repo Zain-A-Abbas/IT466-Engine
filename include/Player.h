@@ -53,7 +53,7 @@ GFC_Vector3D getCameraPosition(Entity *self);
 * @param The player entity
 * @param The angle of the ground, if the player is on the floor
 */
-int isOnFloor(Entity* self, float* floorAngle);
+int isOnFloor(Entity* self, GFC_Vector3D * floorNormal, GFC_Vector3D * contact);
 
 
 #endif
