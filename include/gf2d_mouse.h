@@ -52,35 +52,35 @@ int gf2d_mouse_moved();
 
 /**
  * @brief check if the mouse button is down at the moment
- * @param button the button number to check (left mouse button is 0, right mouse button is 1, etc)
+ * @param button the button number to check (left mouse button is 0, middle mouse button is 1, right mouse button is 2, etc)
  * @return 1 if it is down, 0 otherwise
  */
 int gf2d_mouse_button_state(int button);
 
 /**
  * @brief check if the mouse button was pressed this frame
- * @param button the button number to check (left mouse button is 0, right mouse button is 1, etc)
+ * @param button the button number to check (left mouse button is 0, middle mouse button is 1, right mouse button is 2, etc)
  * @return 1 if it has, 0 otherwise
  */
 int gf2d_mouse_button_pressed(int button);
 
 /**
  * @brief check if the mouse button was held for this frame
- * @param button the button number to check (left mouse button is 0, right mouse button is 1, etc)
+ * @param button the button number to check (left mouse button is 0, middle mouse button is 1, right mouse button is 2, etc)
  * @return 1 if it has, 0 otherwise
  */
 int gf2d_mouse_button_held(int button);
 
 /**
  * @brief check if the mouse button was released this frame
- * @param button the button number to check (left mouse button is 0, right mouse button is 1, etc)
+ * @param button the button number to check (left mouse button is 0, middle mouse button is 1, right mouse button is 2, etc)
  * @return 1 if it has, 0 otherwise
  */
 int gf2d_mouse_button_released(int button);
 
 /**
  * @brief check the state of the mouse button
- * @param button the button number to check (left mouse button is 0, right mouse button is 1, etc)
+ * @param button the button number to check (left mouse button is 0, middle mouse button is 1, right mouse button is 2, etc)
  * @return 1 if it is down, 0 otherwise
  */
 int gf2d_mouse_button_state(int button);
