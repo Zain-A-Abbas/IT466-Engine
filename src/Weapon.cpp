@@ -97,6 +97,6 @@ void pistolFire(Weapon* weapon, GFC_Vector3D playerPosition, GFC_Vector3D player
         slog("Hit no enemy");
         return;
     }
-    slog("Hit enemy: %s", hitEntity->name);
+    //slog("Hit enemy: %s", hitEntity->name);
 
 }

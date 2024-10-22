@@ -8,7 +8,6 @@
 #include "Weapon.hpp"
 #include "gf3d_draw.h"
 
-#define CAMERA_OFFSET gfc_vector3d(-4, 20, 4)
 #define FAR_CAMERA_OFFSET gfc_vector3d(-8, 32, 4)
 #define CAMERA_ROTATION gfc_vector3d(M_PI, 0, M_PI)
 

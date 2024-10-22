@@ -11,6 +11,9 @@ const float MAX_SLOPE_DEGREES = M_PI / 4;
 const float PLAYER_GRAVITY_RAYCAST_HEIGHT = 6.5;
 const float GRAVITY = -0.48;
 
+
+const GFC_Vector3D CAMERA_OFFSET = { -4, 20, 4 };
+
 float previousFloorAngle = 0.0;
 float snapZ = 0.0;
 bool snapToSnapZ = false;
@@ -246,7 +249,7 @@ int isOnFloor(Entity* self, GFC_Vector3D * floorNormal, GFC_Vector3D * contact) 
 
 GFC_Vector3D getCameraPosition(Entity *self) {
     PlayerData * playerData = getPlayerData(self);
-    GFC_Vector3D newCamPosition = FAR_CAMERA_OFFSET;
+    GFC_Vector3D newCamPosition = CAMERA_OFFSET;
     gfc_vector3d_rotate_about_x(&newCamPosition, playerData->playerRotation.x); 
     gfc_vector3d_rotate_about_z(&newCamPosition, playerData->playerRotation.z);
     newCamPosition = gfc_vector3d_added(newCamPosition, self->position);
