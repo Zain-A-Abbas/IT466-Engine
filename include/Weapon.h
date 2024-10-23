@@ -33,7 +33,10 @@ typedef struct Weapon_S
  */
 Weapon loadWeapon(const char *weaponFile);
 
-Entity* shotCollided(GFC_Edge3D raycast);
+/**
+* @brief Returns an entity hit by a raycast. Does not work if the entity's origin is more than 2 meters away from the edge of its collision
+*/
+Entity* shotCollided(GFC_Edge3D raycast, GFC_Box boundingBox);
 /**
  * @brief Pistol's fire function.
  */

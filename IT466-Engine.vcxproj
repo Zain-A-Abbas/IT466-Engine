@@ -166,6 +166,7 @@
     <ClCompile Include="gfc\src\gfc_vector.c" />
     <ClCompile Include="gfc\src\miniz.c" />
     <ClCompile Include="src\Enemy.c" />
+    <ClCompile Include="src\Interactable.c" />
     <ClCompile Include="src\TerrainManager.c" />
     <ClCompile Include="src\Entity.c" />
     <ClCompile Include="src\game.c" />
@@ -231,6 +232,7 @@
     <ClInclude Include="gfc\simple_logger\include\simple_logger.h" />
     <ClInclude Include="include\Bullet.h" />
     <ClInclude Include="include\Enemy.h" />
+    <ClInclude Include="include\Interactable.h" />
     <ClInclude Include="include\TerrainManager.h" />
     <ClInclude Include="include\Entity.h" />
     <ClInclude Include="include\gf2d_actor.h" />

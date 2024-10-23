@@ -55,5 +55,9 @@ GFC_Vector3D getCameraPosition(Entity *self);
 */
 int isOnFloor(Entity* self, GFC_Vector3D * floorNormal, GFC_Vector3D * contact);
 
+/**
+* @brief Interacts with all objects in a radius in front of the player
+*/
+void interact(Entity* self);
 
 #endif

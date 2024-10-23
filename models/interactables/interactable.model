@@ -1,0 +1,7 @@
+{
+    "model":
+    {
+        "obj":"models/enemies/enemy1/enemy1.obj",
+        "texture":"models/interactables/interactabletexture.png"
+    }
+}

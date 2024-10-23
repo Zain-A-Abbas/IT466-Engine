@@ -29,6 +29,7 @@
 #include "Player.h"
 #include "Enemy.h"
 #include "Reticle.h"
+#include "Interactable.h"
 
 extern int __DEBUG;
 
@@ -104,18 +105,25 @@ int main(int argc,char *argv[])
     // Create player
     Entity * player = createPlayer();
     assignCamera(player, gf3dGetCamera());
+    player->position.z = 20;
     SDL_SetRelativeMouseMode(SDL_TRUE);
 
     // Create dummy enemies
     Entity* enemy1 = enemyEntityNew();
-    enemy1->position = gfc_vector3d(4, 4, -8);
+    enemy1->position = gfc_vector3d(4, 4, 0);
     Entity* enemy2 = enemyEntityNew();
-    enemy2->position = gfc_vector3d(-4, 4, -8);
+    enemy2->position = gfc_vector3d(-4, 4, 0);
     
     // Create land
     Entity* testGround = terrainEntityNew();
     testGround->model = gf3d_model_load("models/primitives/testground2.model");
-    testGround->position = gfc_vector3d(0, 0, -8);
+    testGround->position = gfc_vector3d(0, 0, 0);
+
+
+    // Create interactable
+    Entity* testInteractable = interactableNew(SPINNING_BOX);
+    testInteractable->position = gfc_vector3d(0, -32, 0);
+
 
     //Delta time
     float delta = 0.0;

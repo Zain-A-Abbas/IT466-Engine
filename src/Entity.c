@@ -4,6 +4,7 @@
 #include "gf3d_obj_load.h"
 
 
+
 EntityManager entityManager = { 0 };
 
 Entity * entityNew() {
@@ -137,7 +138,17 @@ int isOnLayer(Entity * self, int layer) {
     return ((self->collisionLayer >> layer) & 1);
 }
 
-int entityRaycastTest(Entity * entity, GFC_Edge3D raycast, GFC_Vector3D *contact, GFC_Triangle3D * t) {
+int entityRaycastTest(Entity * entity, GFC_Edge3D raycast, GFC_Vector3D *contact, GFC_Triangle3D * t, GFC_Box * boundingBox) {
+    if (boundingBox) {
+        if (!(
+            entity->position.x > fminf(boundingBox->x, (boundingBox->x + boundingBox->w)) && entity->position.x < fmaxf(boundingBox->x, (boundingBox->x + boundingBox->w)) &&
+            entity->position.y > fminf(boundingBox->y, (boundingBox->y + boundingBox->d)) && entity->position.y < fmaxf(boundingBox->y, (boundingBox->y + boundingBox->d)) &&
+            entity->position.z > fminf(boundingBox->z, (boundingBox->z + boundingBox->h)) && entity->position.z < fmaxf(boundingBox->z, (boundingBox->z + boundingBox->h))
+        )) {
+            return false;
+        }
+    }
+
     Model* entityModel = entity->model;
     // Get meshes
     for (int j = 0; j < gfc_list_get_count(entityModel->mesh_list); j++) {

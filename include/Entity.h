@@ -5,6 +5,7 @@
 #include "gfc_text.h"
 #include "gfc_vector.h"
 #include "gf3d_model.h"
+#include "gfc_primitives.h"
 
 typedef enum {
     NONE,
@@ -79,7 +80,7 @@ void _entityFree(Entity *self);
 /**
 * @brief Return whether or not the following raycast intersected an entity or not
 */
-int entityRaycastTest(Entity* entity, GFC_Edge3D raycast, GFC_Vector3D* contact, GFC_Triangle3D* t);
+int entityRaycastTest(Entity* entity, GFC_Edge3D raycast, GFC_Vector3D* contact, GFC_Triangle3D* t, GFC_Box* boundingBox);
 
 /**
 * @brief Check if the entity is on a collision layer or not
