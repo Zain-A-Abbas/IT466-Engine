@@ -211,22 +211,30 @@ void _playerUpdate(Entity * self, float delta) {
             continue;
         }
 
-        if (!isOnLayer(currEntity, 1)) {
+        if (!isOnLayer(currEntity, 3)) {
             continue;
         }
 
-        if (!gfc_vector3d_distance_between_less_than(self->position, currEntity->position, HORIZONTAL_COLLISION_RADIUS * 8)) {
+
+        if (!gfc_vector3d_distance_between_less_than(self->position, currEntity->position, HORIZONTAL_COLLISION_RADIUS * 2)) {
             continue;
         }
+
+        GFC_Vector3D playerDir = velocity;
+        gfc_vector3d_normalize(&playerDir);
 
         GFC_Vector3D collisionSpherePosition;
-        GFC_Vector3D nextPosition = gfc_vector3d_added(self->position, velocity);
+        GFC_Vector3D nextPosition = gfc_vector3d_multiply(velocity, gfc_vector3d(8, 8, 8));
+        nextPosition = gfc_vector3d_added(self->position, velocity);
 
         GFC_Edge3D movementRaycast = gfc_edge3d_from_vectors(self->position, nextPosition);
         GFC_Vector3D contact;
         GFC_Triangle3D t;
         if (entityRaycastTest(currEntity, movementRaycast, &contact, &t, NULL)) {
-            if (fabsf())
+            GFC_Vector3D normal = gfc_trigfc_angle_get_normal(t);
+            
+            slog("Normal of the triangle: %f, %f, %f", normal.x, normal.y, normal.z);
+            slog("Player Direction: %f, %f, %f", playerDir.x, playerDir.y, playerDir.z);
         }
             
 

@@ -13,4 +13,4 @@ Entity * terrainEntityNew() {
 	terrainEntity->type = TERRAIN;
 	terrainEntity->collisionLayer = TERRAIN_LAYERS;
 	return terrainEntity;
-};
+}

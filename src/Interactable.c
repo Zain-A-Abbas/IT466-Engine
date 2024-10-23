@@ -23,6 +23,7 @@ Entity* interactableNew(InteractableType type) {
 		return NULL;
 	}
 
+	newInteractable->collisionLayer = INTERACTABLE_LAYERS;
 	memset(interactableData, 0, sizeof(interactableData));
 	newInteractable->data = interactableData;
 

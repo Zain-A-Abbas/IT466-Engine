@@ -9,7 +9,7 @@ EntityManager entityManager = { 0 };
 
 Entity * entityNew() {
     for (int i = 0; i < entityManager.entityMax; ++i) {
-        if (entityManager.entityList[i]._in_use) continue; // Skil ones in use
+        if (entityManager.entityList[i]._in_use) continue; //Skil ones in use
         memset(&entityManager.entityList[i], 0, sizeof(Entity)); // Clear out memory if something is there
         entityManager.entityList[i].scale = gfc_vector3d(1, 1, 1);
         entityManager.entityList[i]._in_use = true;
