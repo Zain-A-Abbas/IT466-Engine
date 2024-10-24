@@ -12,7 +12,7 @@ const int LOWEST_X_DEGREES = -20;
 const float MAX_SLOPE_DEGREES = M_PI / 4;
 const float PLAYER_GRAVITY_RAYCAST_HEIGHT = 6.5;
 const float GRAVITY = -1;
-const float HORIZONTAL_COLLISION_RADIUS = 4;
+const float HORIZONTAL_COLLISION_RADIUS = 2;
 
 const float INTERACT_DISTANCE = 8;
 
@@ -210,52 +210,61 @@ void _playerUpdate(Entity * self, float delta) {
         if (!currEntity->_in_use) {
             continue;
         }
-
         if (!isOnLayer(currEntity, 3)) {
             continue;
         }
-
-
-        if (!gfc_vector3d_distance_between_less_than(self->position, currEntity->position, HORIZONTAL_COLLISION_RADIUS * 2)) {
+        if (!gfc_vector3d_distance_between_less_than(self->position, currEntity->position, HORIZONTAL_COLLISION_RADIUS * 8)) {
             continue;
         }
 
-        GFC_Vector3D playerDir = velocity;
-        GFC_Vector2D playerDir2D = gfc_vector2d(playerDir.x, playerDir.y);
-        gfc_vector2d_normalize(&playerDir2D);
 
-        GFC_Vector3D collisionSpherePosition;
-        GFC_Vector3D nextPosition = gfc_vector3d_added(self->position, velocity);
-
-        GFC_Edge3D movementRaycast = gfc_edge3d_from_vectors(self->position, nextPosition);
+        GFC_Edge3D movementRaycast;
         GFC_Vector3D contact;
         GFC_Triangle3D t;
-        if (entityRaycastTest(currEntity, movementRaycast, &contact, &t, NULL)) {
-            GFC_Vector2D diff;
-            diff.x = movementRaycast.b.x - contact.x;
-            diff.y = movementRaycast.b.y - contact.y;
-            if (velocity.x > 0) {
-                if (diff.x > 0) {
-                    velocity.x -= diff.x;
-                }
-            } else if (velocity.x < 0) {
-                if (diff.x < 0) {
-                    velocity.x -= diff.x;
-                }
-            }
 
-            if (velocity.y > 0) {
-                if (diff.y > 0) {
-                    velocity.y = 0;
-                }
-            } else if (velocity.y < 0) {
-                if (diff.y < 0) {
-                    velocity.y = 0;
-                }
-            }
+        //slog("Velocity start: %f, %f", velocity.x, velocity.y);
+        for (int i = 0; i < 16; i++) {
+            float angle = M_PI / 8 * i;
+            GFC_Vector3D raycastStart = gfc_vector3d(0, HORIZONTAL_COLLISION_RADIUS, 0);
+            gfc_vector3d_rotate_about_z(&raycastStart, angle);
+            raycastStart = gfc_vector3d_added(raycastStart, self->position);
+            GFC_Vector3D raycastEnd = gfc_vector3d_added(raycastStart, velocity);
+            movementRaycast = gfc_edge3d_from_vectors(raycastStart, raycastEnd);
 
+
+            if (entityRaycastTest(currEntity, movementRaycast, &contact, &t, NULL)) {
+                GFC_Vector2D diff;
+                diff.x = movementRaycast.b.x - contact.x;
+                diff.y = movementRaycast.b.y - contact.y;
+                if (velocity.x > 0) {
+                    if (diff.x > 0) {
+                        velocity.x = 0;
+                    }
+                }
+                else if (velocity.x < 0) {
+                    if (diff.x < 0) {
+                        velocity.x = 0;
+                    }
+                }
+
+                if (velocity.y > 0) {
+                    if (diff.y > 0) {
+                        velocity.y = 0;
+                    }
+                }
+                else if (velocity.y < 0) {
+                    if (diff.y < 0) {
+                        velocity.y = 0;
+                    }
+                }
+
+
+            }
 
         }
+        //slog("Velocity end: %f, %f", velocity.x, velocity.y);
+
+
             
 
     }
