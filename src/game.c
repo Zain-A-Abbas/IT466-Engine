@@ -116,13 +116,15 @@ int main(int argc,char *argv[])
     
     // Create land
     Entity* testGround = terrainEntityNew();
-    testGround->model = gf3d_model_load("models/primitives/testground2.model");
-    testGround->position = gfc_vector3d(0, 0, 0);
+    testGround->model = gf3d_model_load("models/primitives/testground.model");
+    testGround->position = gfc_vector3d(0, 0, -8);
 
 
     // Create interactable
     Entity* testInteractable = interactableNew(SPINNING_BOX);
     testInteractable->position = gfc_vector3d(0, -32, 0);
+    //testInteractable->scale = gfc_vector3d(4, 4, 4);
+    //testInteractable->rotation.z = 0.707;
 
 
     //Delta time

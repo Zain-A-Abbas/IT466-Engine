@@ -221,24 +221,45 @@ void _playerUpdate(Entity * self, float delta) {
         }
 
         GFC_Vector3D playerDir = velocity;
-        gfc_vector3d_normalize(&playerDir);
+        GFC_Vector2D playerDir2D = gfc_vector2d(playerDir.x, playerDir.y);
+        gfc_vector2d_normalize(&playerDir2D);
 
         GFC_Vector3D collisionSpherePosition;
-        GFC_Vector3D nextPosition = gfc_vector3d_multiply(velocity, gfc_vector3d(8, 8, 8));
-        nextPosition = gfc_vector3d_added(self->position, velocity);
+        GFC_Vector3D nextPosition = gfc_vector3d_added(self->position, velocity);
 
         GFC_Edge3D movementRaycast = gfc_edge3d_from_vectors(self->position, nextPosition);
         GFC_Vector3D contact;
         GFC_Triangle3D t;
         if (entityRaycastTest(currEntity, movementRaycast, &contact, &t, NULL)) {
-            GFC_Vector3D normal = gfc_trigfc_angle_get_normal(t);
-            
-            slog("Normal of the triangle: %f, %f, %f", normal.x, normal.y, normal.z);
-            slog("Player Direction: %f, %f, %f", playerDir.x, playerDir.y, playerDir.z);
+            GFC_Vector2D diff;
+            diff.x = movementRaycast.b.x - contact.x;
+            diff.y = movementRaycast.b.y - contact.y;
+            if (velocity.x > 0) {
+                if (diff.x > 0) {
+                    velocity.x -= diff.x;
+                }
+            } else if (velocity.x < 0) {
+                if (diff.x < 0) {
+                    velocity.x -= diff.x;
+                }
+            }
+
+            if (velocity.y > 0) {
+                if (diff.y > 0) {
+                    velocity.y = 0;
+                }
+            } else if (velocity.y < 0) {
+                if (diff.y < 0) {
+                    velocity.y = 0;
+                }
+            }
+
+
         }
             
 
     }
+    playerData->playerVelocity = velocity;
 
     self->position.x += playerData->playerVelocity.x;
     self->position.y += playerData->playerVelocity.y;

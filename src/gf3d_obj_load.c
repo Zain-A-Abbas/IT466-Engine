@@ -589,6 +589,11 @@ Uint8 gf3d_entity_obj_line_test(ObjData* obj, Entity* ent, GFC_Edge3D e, GFC_Vec
         t->b = obj->faceVertices[index].vertex;
         index = obj->outFace[i].verts[2];
         t->c = obj->faceVertices[index].vertex;
+
+        t->a = gfc_vector3d_multiply(t->a, ent->scale);
+        t->b = gfc_vector3d_multiply(t->b, ent->scale);
+        t->c = gfc_vector3d_multiply(t->c, ent->scale);
+
         t->a = gfc_vector3d_added(t->a, ent->position);
         t->b = gfc_vector3d_added(t->b, ent->position);
         t->c = gfc_vector3d_added(t->c, ent->position);
