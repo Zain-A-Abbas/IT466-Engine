@@ -230,10 +230,24 @@ void _playerUpdate(Entity * self, float delta) {
             raycastStart = gfc_vector3d_added(raycastStart, self->position);
             GFC_Vector3D raycastEnd = gfc_vector3d_added(raycastStart, velocity);
             movementRaycast = gfc_edge3d_from_vectors(raycastStart, raycastEnd);
+            GFC_Vector3D normalizedVelocity = velocity;
+            GFC_Vector3D triangleNormal;
+            GFC_Vector3D velocitySubtract;
+            float velocityMagnitude = gfc_vector3d_magnitude(velocity);
 
 
             if (entityRaycastTest(currEntity, movementRaycast, &contact, &t, NULL)) {
-                GFC_Vector2D diff;
+                gfc_vector3d_normalize(&normalizedVelocity);
+                triangleNormal = gfc_trigfc_angle_get_normal(t);
+                float dot = gfc_vector3d_dot_product(normalizedVelocity, triangleNormal);
+                velocitySubtract = gfc_vector3d_multiply(triangleNormal, gfc_vector3d(dot * velocityMagnitude, dot * velocityMagnitude, dot * velocityMagnitude));
+                
+                //slog("Vel: %f, %f, %f", velocity.x, velocity.y, velocity.z);
+                //log("Vel sub: %f, %f, %f", velocitySubtract.x, velocitySubtract.y, velocitySubtract.z);
+                velocity = gfc_vector3d_subbed(velocity, velocitySubtract);
+                //slog("New vel: %f, %f, %f", velocity.x, velocity.y, velocity.z);
+
+                /*GFC_Vector2D diff;
                 diff.x = movementRaycast.b.x - contact.x;
                 diff.y = movementRaycast.b.y - contact.y;
                 if (velocity.x > 0) {
@@ -256,7 +270,7 @@ void _playerUpdate(Entity * self, float delta) {
                     if (diff.y < 0) {
                         velocity.y = 0;
                     }
-                }
+                }*/
 
 
             }
